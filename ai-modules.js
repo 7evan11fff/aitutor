@@ -169,6 +169,12 @@ Please wait for the lockout to expire before using the extension again.`;
       
       console.log('Math content check:', hasMathContent);
       console.log('Math symbols check:', hasMathSymbols);
+      console.log('Problem contains 2a:', problem.includes('2a'));
+      console.log('Problem contains 73b:', problem.includes('73b'));
+      console.log('Problem contains =3:', problem.includes('=3'));
+      console.log('Problem contains -3a:', problem.includes('-3a'));
+      console.log('Problem contains 7b:', problem.includes('7b'));
+      console.log('Problem contains =6:', problem.includes('=6'));
       
       // Only activate for math problems, not reading/writing/other subjects
       if (hasMathContent && hasMathSymbols && !problem.includes('theme') && 
@@ -533,6 +539,8 @@ Remember: Be direct, helpful, and concise. Focus on guiding them to discover the
   handleDeveloperTest(problem) {
     console.log('🔧 DEVELOPER TEST MODE ACTIVATED');
     console.log('Problem text:', problem);
+    console.log('Problem type:', typeof problem);
+    console.log('Problem length:', problem.length);
     
     // Clean up the problem text - remove conversation history and context
     let cleanProblem = problem;
@@ -556,8 +564,10 @@ Remember: Be direct, helpful, and concise. Focus on guiding them to discover the
     console.log('Cleaned problem text:', cleanProblem);
     
     // Check for the specific format: {2a−73b=3−3a+7b=6}
-    if (cleanProblem.includes('2a') && cleanProblem.includes('73b') && cleanProblem.includes('=3') && 
-        cleanProblem.includes('-3a') && cleanProblem.includes('7b') && cleanProblem.includes('=6')) {
+    if ((cleanProblem.includes('2a') && cleanProblem.includes('73b') && cleanProblem.includes('=3') && 
+         cleanProblem.includes('-3a') && cleanProblem.includes('7b') && cleanProblem.includes('=6')) ||
+        cleanProblem.includes('2a−73b=3−3a+7b=6') ||
+        cleanProblem.includes('2a-73b=3-3a+7b=6')) {
       console.log('Detected 2a-73b=3-3a+7b=6 system');
       return `🔧 **DEVELOPER TEST MODE - ACTUAL SOLUTION** 🔧<br><br>
 **System of Equations:**<br>
