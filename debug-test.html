@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutor Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .debug-info {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <h1>AI Tutor Extension Debug Test</h1>
+    
+    <div class="debug-info">
+        <h3>🔍 Debug Information</h3>
+        <p>This page will help us debug the AI Tutor extension. Check the browser console (F12) for any error messages.</p>
+        <div id="debug-status">
+            <div class="status warning">Checking extension status...</div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📚 Math Test</h3>
+        <p>Solve for x: 2x + 5 = 13</p>
+        <p><strong>Try asking:</strong> "I need help with this algebra problem"</p>
+    </div>
+
+    <div class="test-section">
+        <h3>📖 Reading Test</h3>
+        <p>Select this text and ask for help: "The Industrial Revolution was a period of major industrialization and innovation during the late 18th and early 19th centuries."</p>
+    </div>
+
+    <div class="test-section">
+        <h3>✍️ Writing Test</h3>
+        <p>Ask: "How can I improve my essay structure?"</p>
+    </div>
+
+    <div class="debug-info">
+        <h3>🛠️ Troubleshooting Steps</h3>
+        <ol>
+            <li>Open Chrome DevTools (F12)</li>
+            <li>Go to Console tab</li>
+            <li>Look for "AI Tutor extension initialized successfully" message</li>
+            <li>Check for any error messages</li>
+            <li>Look for the "I Need Help" button in the top right corner</li>
+        </ol>
+    </div>
+
+    <script>
+        // Debug script to check extension status
+        function checkExtensionStatus() {
+            const statusDiv = document.getElementById('debug-status');
+            
+            // Check if the floating button exists
+            const button = document.getElementById('ai-tutor-floating-btn');
+            if (button) {
+                statusDiv.innerHTML = '<div class="status success">✅ Extension is active! Floating button found.</div>';
+            } else {
+                statusDiv.innerHTML = '<div class="status error">❌ Extension not active. Floating button not found.</div>';
+            }
+            
+            // Check console for messages
+            console.log('Debug test page loaded');
+            console.log('Looking for AI Tutor extension...');
+        }
+
+        // Check status after page loads
+        document.addEventListener('DOMContentLoaded', checkExtensionStatus);
+        
+        // Check again after a delay
+        setTimeout(checkExtensionStatus, 2000);
+    </script>
+</body>
+</html>

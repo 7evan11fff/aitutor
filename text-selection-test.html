@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Selection Mode Test - Ctrl+Shift+T Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .math-problem {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .math-problem:hover {
+            background: #e6fffa;
+        }
+        .reading-text {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .reading-text:hover {
+            background: #ffeaa7;
+        }
+        .test-case {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-family: monospace;
+        }
+        .mode-indicator {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 Text Selection Mode Test - Ctrl+Shift+T Toggle</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Text Selection Toggle:</h3>
+        <p>This test verifies that the <span class="keyboard-shortcut">Ctrl+Shift+T</span> keybind properly toggles text selection mode on/off, preventing the "I Need Help" button from being selectable and improving the text selection experience.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ All Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+G</span> - Toggle aggressive mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+T</span> - Toggle text selection mode (NEW!)</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Press Ctrl+Shift+T</strong> to toggle text selection mode</li>
+                <li><strong>Try selecting text</strong> when mode is ON - should work normally</li>
+                <li><strong>Try selecting text</strong> when mode is OFF - should not work</li>
+                <li><strong>Click on elements</strong> when mode is OFF - should still work</li>
+                <li><strong>Check notifications</strong> - should show mode status</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="mode-indicator">
+        <h3>🔄 Current Mode Status:</h3>
+        <p>Text Selection Mode: <span id="mode-status">ON</span></p>
+        <p>Press <span class="keyboard-shortcut">Ctrl+Shift+T</span> to toggle</p>
+    </div>
+
+    <div class="test-section">
+        <h3>🧮 Math Problems (Try Selecting These):</h3>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            2x + 5 = 13
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            Find the midpoint of the line segment with endpoints (−5,3) and (7,5).
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            \dfrac{14s + 49}{7t} =
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            Calculate: 1/2 + 1/4
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            Solve: 3 × 4 + 7 = ?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📖 Reading Passages (Try Selecting These):</h3>
+        <div class="reading-text" onclick="alert('Reading text clicked!')">
+            The sun is a star located at the center of our solar system. It provides light and heat to all the planets, including Earth. Without the sun, life on Earth would not be possible.
+        </div>
+        <div class="reading-text" onclick="alert('Reading text clicked!')">
+            Photosynthesis is the process by which plants convert sunlight into energy. This process is essential for life on Earth as it produces oxygen and removes carbon dioxide from the atmosphere.
+        </div>
+        <div class="reading-text" onclick="alert('Reading text clicked!')">
+            The Industrial Revolution was a period of major industrialization and innovation during the late 18th and early 19th centuries. It transformed the way goods were manufactured and had a profound impact on society.
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 Test Cases (What Should Happen):</h3>
+        <div class="test-case">
+            <strong>Text Selection ON:</strong><br>
+            - You can select text by dragging<br>
+            - "I Need Help" button is not selectable<br>
+            - Selected text gets highlighted<br>
+            - Click "I Need Help" to analyze
+        </div>
+        <div class="test-case">
+            <strong>Text Selection OFF:</strong><br>
+            - You cannot select text by dragging<br>
+            - Click on elements to select them<br>
+            - "I Need Help" button still works<br>
+            - Elements get outlined when clicked
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔍 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Mode Toggle:</strong> Ctrl+Shift+T should toggle text selection on/off</li>
+            <li><strong>✅ Notifications:</strong> Should show "Text Selection: ON/OFF" messages</li>
+            <li><strong>✅ Button Protection:</strong> "I Need Help" button should not be selectable</li>
+            <li><strong>✅ Text Selection:</strong> Should work when mode is ON, not when OFF</li>
+            <li><strong>✅ Element Clicking:</strong> Should work regardless of mode</li>
+            <li><strong>✅ Mode Persistence:</strong> Mode should stay until toggled again</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Advanced Testing:</h3>
+        <ol>
+            <li><strong>Test Mode Toggle:</strong> Press Ctrl+Shift+T multiple times</li>
+            <li><strong>Test Text Selection:</strong> Try selecting text in both modes</li>
+            <li><strong>Test Element Clicking:</strong> Click on math problems and reading passages</li>
+            <li><strong>Test Button Interaction:</strong> Make sure "I Need Help" button works</li>
+            <li><strong>Test Mode Indicators:</strong> Check that notifications appear</li>
+        </ol>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>Mode Toggle:</strong> Ctrl+Shift+T switches between ON and OFF</li>
+            <li><strong>Text Selection ON:</strong> Normal text selection behavior</li>
+            <li><strong>Text Selection OFF:</strong> No text selection, click elements instead</li>
+            <li><strong>Button Protection:</strong> "I Need Help" button is never selectable</li>
+            <li><strong>Notifications:</strong> Clear indication of current mode</li>
+            <li><strong>Persistence:</strong> Mode stays until manually changed</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Text selection mode test loaded');
+            
+            // Add click handlers for demonstration
+            document.querySelectorAll('.math-problem, .reading-text').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    console.log('Test element clicked:', this.textContent);
+                });
+            });
+            
+            // Update mode status display (this would be updated by the extension)
+            function updateModeStatus() {
+                // This would be updated by the extension's toggleTextSelectionMode function
+                // For now, just show a placeholder
+                document.getElementById('mode-status').textContent = 'ON (Extension controls this)';
+            }
+            
+            updateModeStatus();
+        });
+    </script>
+</body>
+</html>

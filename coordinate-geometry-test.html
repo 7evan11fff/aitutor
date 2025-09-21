@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinate Geometry Test - Midpoint, Distance, Slope</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .math-problem {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .math-problem:hover {
+            background: #e6fffa;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        .geometry-button {
+            background: #e6f3ff;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .geometry-button:hover {
+            background: #d1e7ff;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        .geometry-input {
+            width: 300px;
+            padding: 8px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .test-case {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>📐 Coordinate Geometry Test - Midpoint, Distance, Slope</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Coordinate Geometry Problem Solving:</h3>
+        <p>This test verifies that the AI tutor can correctly solve coordinate geometry problems including midpoint, distance, and slope calculations. The extension should detect coordinate patterns and provide step-by-step solutions.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+G</span> - Toggle aggressive mode</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Click on coordinate geometry problems below</strong> - should get blue outline</li>
+                <li><strong>Click "I Need Help"</strong> to analyze the problem</li>
+                <li><strong>Verify coordinate extraction</strong> - should find coordinates like (−5,3) and (7,5)</li>
+                <li><strong>Check step-by-step solution</strong> - should show formulas and calculations</li>
+                <li><strong>Verify correct answers</strong> - should calculate midpoint, distance, or slope correctly</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📍 Midpoint Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Find the midpoint of the line segment with endpoints (−5,3) and (7,5).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            What is the midpoint of the segment connecting (2,4) and (8,10)?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Calculate the midpoint between points (0,0) and (6,8).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Find the midpoint of the line segment with endpoints (1,2) and (9,6).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Determine the midpoint of the segment from (−3,−2) to (5,4).
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📏 Distance Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Find the distance between points (3,4) and (7,8).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Calculate the distance from (0,0) to (5,12).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            What is the distance between (−2,3) and (4,−1)?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Find the distance between points (1,1) and (4,5).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Calculate the distance from (−1,−1) to (3,2).
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📈 Slope Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Find the slope of the line passing through (2,3) and (6,11).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            What is the slope between points (1,2) and (5,8)?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Calculate the slope of the line through (−2,4) and (3,−1).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Find the slope between (0,0) and (4,2).
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Determine the slope of the line from (3,1) to (7,9).
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔘 Coordinate Geometry Buttons (Click These):</h3>
+        <div class="button-group">
+            <button class="geometry-button" onclick="alert('Button clicked!')">Midpoint: (1,2) and (5,6)</button>
+            <button class="geometry-button" onclick="alert('Button clicked!')">Distance: (0,0) and (3,4)</button>
+            <button class="geometry-button" onclick="alert('Button clicked!')">Slope: (2,1) and (6,5)</button>
+            <button class="geometry-button" onclick="alert('Button clicked!')">Midpoint: (−1,3) and (7,−5)</button>
+            <button class="geometry-button" onclick="alert('Button clicked!')">Distance: (4,2) and (8,6)</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Coordinate Geometry Input Fields (Click These):</h3>
+        <div class="input-group">
+            <input type="text" class="geometry-input" placeholder="Find midpoint of (2,4) and (8,10)" value="">
+            <input type="text" class="geometry-input" placeholder="Calculate distance from (0,0) to (5,12)" value="">
+            <input type="text" class="geometry-input" placeholder="Find slope between (1,2) and (5,8)" value="">
+            <input type="text" class="geometry-input" placeholder="Midpoint of (−3,−2) and (5,4)" value="">
+            <input type="text" class="geometry-input" placeholder="Distance between (3,4) and (7,8)" value="">
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 Test Cases (What Should Happen):</h3>
+        <div class="test-case">
+            <strong>Input:</strong> "Find the midpoint of the line segment with endpoints (−5,3) and (7,5)."<br>
+            <strong>Expected:</strong> Extract coordinates (−5,3) and (7,5) → Calculate midpoint (1,4) → Show step-by-step solution
+        </div>
+        <div class="test-case">
+            <strong>Input:</strong> "Find the distance between points (3,4) and (7,8)."<br>
+            <strong>Expected:</strong> Extract coordinates (3,4) and (7,8) → Calculate distance 5.66 → Show distance formula
+        </div>
+        <div class="test-case">
+            <strong>Input:</strong> "Find the slope of the line passing through (2,3) and (6,11)."<br>
+            <strong>Expected:</strong> Extract coordinates (2,3) and (6,11) → Calculate slope 2 → Show slope formula
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔍 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Coordinate Detection:</strong> Should find coordinates like (−5,3) and (7,5)</li>
+            <li><strong>✅ Problem Type Recognition:</strong> Should identify midpoint, distance, or slope problems</li>
+            <li><strong>✅ Step-by-Step Solution:</strong> Should show formulas and calculations</li>
+            <li><strong>✅ Correct Calculations:</strong> Should calculate the right answers</li>
+            <li><strong>✅ Formula Explanation:</strong> Should explain the formulas being used</li>
+            <li><strong>✅ Math Detection:</strong> Should recognize as math, not reading comprehension</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Advanced Testing:</h3>
+        <ol>
+            <li><strong>Test Different Formats:</strong> Try various ways of writing coordinate problems</li>
+            <li><strong>Test Negative Coordinates:</strong> Try problems with negative numbers</li>
+            <li><strong>Test Decimal Coordinates:</strong> Try problems with decimal coordinates</li>
+            <li><strong>Test Mixed Content:</strong> Try problems with both coordinates and other text</li>
+            <li><strong>Test Real Sites:</strong> Try on actual educational platforms</li>
+        </ol>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>Coordinate Extraction:</strong> Finds coordinates in (x,y) format</li>
+            <li><strong>Problem Classification:</strong> Identifies midpoint, distance, or slope problems</li>
+            <li><strong>Formula Application:</strong> Uses correct formulas for each problem type</li>
+            <li><strong>Step-by-Step:</strong> Shows each calculation step clearly</li>
+            <li><strong>Correct Answers:</strong> Calculates the right numerical results</li>
+            <li><strong>Educational Focus:</strong> Explains the process, not just gives answers</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Coordinate geometry test loaded');
+            
+            // Add click handlers for demonstration
+            document.querySelectorAll('.math-problem, .geometry-button, .geometry-input').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    console.log('Coordinate geometry element clicked:', this.textContent || this.value || this.placeholder);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count Test - Text Selection and Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .text-sample {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            user-select: text;
+        }
+        .text-sample:hover {
+            background: #e6fffa;
+        }
+        .long-text {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            user-select: text;
+        }
+        .long-text:hover {
+            background: #ffeaa7;
+        }
+        .test-case {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-family: monospace;
+        }
+        .word-count-info {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Word Count Test - Text Selection and Analysis</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Word Count Accuracy:</h3>
+        <p>This test verifies that the AI tutor correctly counts words in selected text and doesn't limit selections to 9 words. The extension should accurately analyze text of any length.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+G</span> - Toggle aggressive mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+T</span> - Toggle text selection mode</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Select text samples below</strong> - Try different lengths</li>
+                <li><strong>Click "I Need Help"</strong> to analyze the selected text</li>
+                <li><strong>Check word count accuracy</strong> - Should count all words correctly</li>
+                <li><strong>Check console logs</strong> - Should show proper word counting</li>
+                <li><strong>Verify no 9-word limit</strong> - Should handle any length text</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="word-count-info">
+        <h3>📊 Expected Word Counts:</h3>
+        <p>Select the text samples below and verify the AI reports the correct word counts</p>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Short Text Samples (Select These):</h3>
+        <div class="text-sample">
+            <strong>Sample 1 (5 words):</strong> The quick brown fox jumps.
+        </div>
+        <div class="text-sample">
+            <strong>Sample 2 (10 words):</strong> This is a test of the word counting functionality in the extension.
+        </div>
+        <div class="text-sample">
+            <strong>Sample 3 (15 words):</strong> Mathematics is the study of numbers, shapes, and patterns that help us understand the world around us.
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📖 Medium Text Samples (Select These):</h3>
+        <div class="text-sample">
+            <strong>Sample 4 (25 words):</strong> The sun is a star located at the center of our solar system. It provides light and heat to all the planets, including Earth. Without the sun, life on Earth would not be possible.
+        </div>
+        <div class="text-sample">
+            <strong>Sample 5 (35 words):</strong> Photosynthesis is the process by which plants convert sunlight into energy. This process is essential for life on Earth as it produces oxygen and removes carbon dioxide from the atmosphere. Plants use chlorophyll to capture light energy.
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📚 Long Text Samples (Select These):</h3>
+        <div class="long-text">
+            <strong>Sample 6 (50+ words):</strong> The Industrial Revolution was a period of major industrialization and innovation during the late 18th and early 19th centuries. It transformed the way goods were manufactured and had a profound impact on society. The revolution began in Great Britain and quickly spread throughout the world. The American Industrial Revolution commonly referred to as the Second Industrial Revolution, started sometime between 1820 and 1870. This period saw the mechanization of agriculture and textile manufacturing and a revolution in power, including steam ships and railroads, that affected social, cultural and economic conditions.
+        </div>
+        <div class="long-text">
+            <strong>Sample 7 (75+ words):</strong> Algebra is a branch of mathematics that uses symbols and letters to represent numbers and quantities in formulas and equations. The word algebra comes from the Arabic word "al-jabr" which means "reunion of broken parts." Algebra helps us solve problems by using variables to represent unknown values. We can then use operations like addition, subtraction, multiplication, and division to find the value of these variables. Algebra is used in many fields including science, engineering, economics, and computer programming. It provides a foundation for more advanced mathematical concepts like calculus and statistics.
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🧮 Math Problems (Select These):</h3>
+        <div class="text-sample">
+            <strong>Math Problem 1:</strong> Find the midpoint of the line segment with endpoints (−5,3) and (7,5).
+        </div>
+        <div class="text-sample">
+            <strong>Math Problem 2:</strong> Solve the equation 2x + 5 = 13 for x.
+        </div>
+        <div class="text-sample">
+            <strong>Math Problem 3:</strong> Calculate the area of a rectangle with length 8 centimeters and width 5 centimeters.
+        </div>
+        <div class="text-sample">
+            <strong>LaTeX Problem:</strong> \dfrac{14s + 49}{7t} = ?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 Test Cases (What Should Happen):</h3>
+        <div class="test-case">
+            <strong>Short Text (5 words):</strong><br>
+            Expected: "I can see you've selected 5 words in 1 sentences"<br>
+            Should NOT show: "9 words in 1 sentences"
+        </div>
+        <div class="test-case">
+            <strong>Medium Text (25 words):</strong><br>
+            Expected: "I can see you've selected 25 words in 2 sentences"<br>
+            Should NOT show: "9 words in 1 sentences"
+        </div>
+        <div class="test-case">
+            <strong>Long Text (50+ words):</strong><br>
+            Expected: "I can see you've selected 50+ words in X sentences"<br>
+            Should NOT show: "9 words in 1 sentences"
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔍 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Accurate Word Count:</strong> Should count all words correctly</li>
+            <li><strong>✅ No 9-Word Limit:</strong> Should handle any length text</li>
+            <li><strong>✅ Proper Sentence Count:</strong> Should count sentences correctly</li>
+            <li><strong>✅ Console Logs:</strong> Should show debug information</li>
+            <li><strong>✅ Math Detection:</strong> Should recognize math problems</li>
+            <li><strong>✅ Reading Analysis:</strong> Should analyze text properly</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Debug Information:</h3>
+        <p>Open browser console (F12) to see debug logs showing:</p>
+        <ul>
+            <li><strong>Text selected:</strong> Shows length, word count, and preview</li>
+            <li><strong>Reading analysis:</strong> Shows text length, word count, sentences, paragraphs</li>
+            <li><strong>Math detection:</strong> Shows if math patterns were found</li>
+            <li><strong>Context analysis:</strong> Shows how the context was determined</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>Accurate Counting:</strong> Word count should match the actual number of words</li>
+            <li><strong>No Limits:</strong> Should handle text of any length</li>
+            <li><strong>Proper Analysis:</strong> Should provide appropriate analysis based on content</li>
+            <li><strong>Math Recognition:</strong> Should detect and solve math problems</li>
+            <li><strong>Reading Analysis:</strong> Should analyze reading passages properly</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Word count test loaded');
+            
+            // Add click handlers for demonstration
+            document.querySelectorAll('.text-sample, .long-text').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    console.log('Test element clicked:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

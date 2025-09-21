@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Detection Test - Context Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .math-problem {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .math-problem:hover {
+            background: #e6fffa;
+        }
+        .reading-text {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .reading-text:hover {
+            background: #ffeaa7;
+        }
+        .mixed-content {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .mixed-content:hover {
+            background: #f5c6cb;
+        }
+        .test-case {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧮 Math Detection Test - Context Recognition</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Math vs Reading Detection:</h3>
+        <p>This test verifies that the AI tutor correctly identifies math problems vs reading content and responds appropriately. It should solve math problems and analyze reading passages differently.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+G</span> - Toggle aggressive mode</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Click on math problems below</strong> - should get blue outline and math analysis</li>
+                <li><strong>Click on reading passages</strong> - should get blue outline and reading analysis</li>
+                <li><strong>Click "I Need Help"</strong> to see the AI's response</li>
+                <li><strong>Verify correct context detection</strong> - math gets solved, reading gets analyzed</li>
+                <li><strong>Check console logs</strong> - should show proper detection logic</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🧮 Math Problems (Should be detected as MATH):</h3>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            2x + 5 = 13
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            3 × 4 + 7 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            Solve: 15 ÷ 3 + 2
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            Calculate: 1/2 + 1/4
+        </div>
+        <div class="math-problem" onclick="alert('Math problem clicked!')">
+            Find x: 4x - 8 = 12
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📖 Reading Passages (Should be detected as READING):</h3>
+        <div class="reading-text" onclick="alert('Reading text clicked!')">
+            The sun is a star located at the center of our solar system. It provides light and heat to all the planets, including Earth. Without the sun, life on Earth would not be possible.
+        </div>
+        <div class="reading-text" onclick="alert('Reading text clicked!')">
+            Photosynthesis is the process by which plants convert sunlight into energy. This process is essential for life on Earth as it produces oxygen and removes carbon dioxide from the atmosphere.
+        </div>
+        <div class="reading-text" onclick="alert('Reading text clicked!')">
+            The Industrial Revolution was a period of major industrialization and innovation during the late 18th and early 19th centuries. It transformed the way goods were manufactured and had a profound impact on society.
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔀 Mixed Content (Should be detected as MATH if it contains math):</h3>
+        <div class="mixed-content" onclick="alert('Mixed content clicked!')">
+            Question: What is 5 + 3? Choose the correct answer: a) 7 b) 8 c) 9 d) 10
+        </div>
+        <div class="mixed-content" onclick="alert('Mixed content clicked!')">
+            Solve this equation: 2x + 4 = 10. The answer is: a) x = 2 b) x = 3 c) x = 4 d) x = 5
+        </div>
+        <div class="mixed-content" onclick="alert('Mixed content clicked!')">
+            Calculate the area of a rectangle with length 5 and width 3. The formula is A = l × w.
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 Test Cases (What Should Happen):</h3>
+        <div class="test-case">
+            <strong>Input:</strong> "2x + 5 = 13"<br>
+            <strong>Expected:</strong> Math detection → Step-by-step algebra solution
+        </div>
+        <div class="test-case">
+            <strong>Input:</strong> "The sun is a star..."<br>
+            <strong>Expected:</strong> Reading detection → Text analysis and comprehension questions
+        </div>
+        <div class="test-case">
+            <strong>Input:</strong> "What is 5 + 3? Choose: a) 7 b) 8 c) 9 d) 10"<br>
+            <strong>Expected:</strong> Math detection → Solve the math problem, not analyze as reading
+        </div>
+        <div class="test-case">
+            <strong>Input:</strong> "Ask me anything or select text on the page"<br>
+            <strong>Expected:</strong> General detection → Ask for clarification, not reading analysis
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔍 Debug Information:</h3>
+        <p>Open browser console (F12) to see debug logs showing:</p>
+        <ul>
+            <li><strong>Math detection check:</strong> Shows what patterns were found</li>
+            <li><strong>Context analysis:</strong> Shows how the context was determined</li>
+            <li><strong>Problem text:</strong> Shows what text is being analyzed</li>
+            <li><strong>Detection results:</strong> Shows whether math or reading was detected</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Advanced Testing:</h3>
+        <ol>
+            <li><strong>Test Edge Cases:</strong> Try ambiguous content that could be either</li>
+            <li><strong>Test LaTeX Math:</strong> Try \dfrac{a}{b} notation</li>
+            <li><strong>Test Multiple Choice:</strong> Try math problems with answer choices</li>
+            <li><strong>Test Mixed Content:</strong> Try content with both math and text</li>
+            <li><strong>Test Real Sites:</strong> Try on actual educational platforms</li>
+        </ol>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>Math Problems:</strong> Should be solved step-by-step with calculations</li>
+            <li><strong>Reading Passages:</strong> Should be analyzed for comprehension and main ideas</li>
+            <li><strong>Mixed Content:</strong> Should prioritize math if math patterns are present</li>
+            <li><strong>General Text:</strong> Should ask for clarification rather than defaulting to reading</li>
+            <li><strong>Debug Logs:</strong> Should show clear detection reasoning</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Math detection test loaded');
+            
+            // Add click handlers for demonstration
+            document.querySelectorAll('.math-problem, .reading-text, .mixed-content').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    console.log('Test element clicked:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

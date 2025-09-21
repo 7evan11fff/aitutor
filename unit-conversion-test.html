@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversion Test - AI Should Solve These</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .conversion-problem {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid #e2e8f0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .conversion-problem:hover {
+            background: #e6f3ff;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .expected {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #48bb78;
+        }
+        .wrong-answer {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #f56565;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔄 Unit Conversion Test - AI Should Solve These Correctly</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Instructions:</h3>
+        <ol>
+            <li><strong>Select each conversion problem below</strong> (click and drag to highlight)</li>
+            <li><strong>Click "I Need Help"</strong> button</li>
+            <li><strong>Ask:</strong> "Solve this conversion" or "What's the answer?"</li>
+            <li><strong>Check:</strong> Does the AI give you the correct converted value?</li>
+        </ol>
+    </div>
+
+    <div class="conversion-problem">
+        The pressure force of a water pump is 0.0704 kilograms per square centimeter. What is the pressure of the pump in grams per square centimeter?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 70.4 grams per square centimeter
+        <br><strong>Calculation:</strong> 0.0704 kg × 1000 g/kg = 70.4 g
+    </div>
+    <div class="wrong-answer">
+        <strong>❌ Wrong Answer (what AI gave before):</strong> 704 (treating 0.0704 as 0 + 704)
+    </div>
+
+    <div class="conversion-problem">
+        Convert 2.5 meters to centimeters.
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 250 centimeters
+        <br><strong>Calculation:</strong> 2.5 m × 100 cm/m = 250 cm
+    </div>
+
+    <div class="conversion-problem">
+        A recipe calls for 1.25 kilograms of flour. How many grams is this?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 1250 grams
+        <br><strong>Calculation:</strong> 1.25 kg × 1000 g/kg = 1250 g
+    </div>
+
+    <div class="conversion-problem">
+        Convert 0.05 meters to centimeters.
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 5 centimeters
+        <br><strong>Calculation:</strong> 0.05 m × 100 cm/m = 5 cm
+    </div>
+
+    <div class="conversion-problem">
+        The weight of a package is 3.75 kilograms. What is the weight in grams?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 3750 grams
+        <br><strong>Calculation:</strong> 3.75 kg × 1000 g/kg = 3750 g
+    </div>
+
+    <div class="instructions">
+        <h3>🔍 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Correct Decimal Handling:</strong> AI should recognize 0.0704 as one number, not 0 and 704</li>
+            <li><strong>✅ Proper Unit Conversion:</strong> Should use correct conversion factors (1 kg = 1000 g)</li>
+            <li><strong>✅ Step-by-Step Work:</strong> Show the conversion process clearly</li>
+            <li><strong>✅ Correct Final Answer:</strong> Should give the right numerical result</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>🐛 If Still Getting Wrong Answers:</h3>
+        <ol>
+            <li>Make sure you're selecting the ENTIRE problem text</li>
+            <li>Try asking "Convert this" or "What's the answer in grams?"</li>
+            <li>Check browser console (F12) for error messages</li>
+            <li>Look for "kilograms" and "grams" in the problem text</li>
+        </ol>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Unit conversion test loaded');
+            
+            // Add click handlers to problems
+            document.querySelectorAll('.conversion-problem').forEach(problem => {
+                problem.addEventListener('click', function() {
+                    // Select the text
+                    const range = document.createRange();
+                    range.selectNodeContents(this);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    console.log('Selected conversion problem:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

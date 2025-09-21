@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Math Functions</title>
+</head>
+<body>
+    <h1>Test Math Functions</h1>
+    <div id="results"></div>
+
+    <script>
+        // Copy the math solving functions here for testing
+        function solveMathProblem(problemText) {
+            console.log('Solving math problem:', problemText);
+            
+            const numbers = problemText.match(/\d+/g);
+            const operations = problemText.match(/[+\-*/=]/g);
+            
+            console.log('Extracted numbers:', numbers);
+            console.log('Extracted operations:', operations);
+            
+            if (!numbers || numbers.length < 1) {
+                return "I can see this is a math problem, but I need to see the actual numbers to solve it. Can you show me the specific problem with numbers?";
+            }
+            
+            if (problemText.includes('x') && problemText.includes('=')) {
+                return solveAlgebraProblem(problemText, numbers);
+            }
+            
+            if (problemText.toLowerCase().includes('area')) {
+                return solveAreaProblem(problemText, numbers);
+            }
+            
+            if (operations && (operations.includes('+') || operations.includes('-') || operations.includes('*') || operations.includes('/'))) {
+                return solveArithmeticProblem(problemText, numbers, operations);
+            }
+            
+            if (problemText.toLowerCase().includes('total') || problemText.toLowerCase().includes('sum') || problemText.toLowerCase().includes('altogether')) {
+                return solveWordProblem(problemText, numbers);
+            }
+            
+            if (numbers.length >= 2) {
+                return solveGenericMathProblem(problemText, numbers);
+            }
+            
+            return "I can see this is a math problem, but I need more specific information. Can you tell me the exact numbers and what operation you're trying to perform?";
+        }
+
+        function solveAlgebraProblem(problemText, numbers) {
+            const num1 = parseInt(numbers[0]);
+            const num2 = parseInt(numbers[1]);
+            const num3 = parseInt(numbers[2]);
+            
+            if (problemText.includes('+') && problemText.includes('=')) {
+                const coefficient = num1;
+                const constant = num2;
+                const result = num3;
+                
+                const solution = (result - constant) / coefficient;
+                
+                return `Let's solve this algebra problem step by step!
+
+**Problem:** ${problemText}
+
+**Step 1:** Identify what we're solving for
+We're solving for x in the equation: ${coefficient}x + ${constant} = ${result}
+
+**Step 2:** Isolate the variable term
+To get x by itself, we need to move the ${constant} to the other side.
+We do this by subtracting ${constant} from both sides:
+${coefficient}x + ${constant} - ${constant} = ${result} - ${constant}
+${coefficient}x = ${result - constant}
+
+**Step 3:** Solve for x
+Now we divide both sides by ${coefficient}:
+${coefficient}x ÷ ${coefficient} = ${result - constant} ÷ ${coefficient}
+x = ${solution}
+
+**Step 4:** Check our answer
+Let's verify: ${coefficient}(${solution}) + ${constant} = ${coefficient * solution} + ${constant} = ${coefficient * solution + constant}
+Since ${coefficient * solution + constant} = ${result}, our answer is correct!
+
+**Answer:** x = ${solution}`;
+            }
+            
+            return "I can see this is an algebra problem, but I need to see the exact equation to solve it step by step.";
+        }
+
+        function solveArithmeticProblem(problemText, numbers, operations) {
+            const num1 = parseInt(numbers[0]);
+            const num2 = parseInt(numbers[1]);
+            
+            if (operations.includes('+')) {
+                const sum = numbers.reduce((acc, num) => acc + parseInt(num), 0);
+                return `Let's solve this addition problem step by step!
+
+**Problem:** ${problemText}
+
+**Step 1:** Add the numbers one by one
+${numbers.join(' + ')}
+
+**Calculation:**
+${numbers[0]} + ${numbers[1]}${numbers.length > 2 ? ` + ${numbers[2]}` : ''} = ${sum}
+
+**Answer:** ${sum}`;
+            }
+            
+            if (operations.includes('-')) {
+                const difference = num1 - num2;
+                return `Let's solve this subtraction problem step by step!
+
+**Problem:** ${problemText}
+
+**Step 1:** Subtract the second number from the first
+${num1} - ${num2} = ${difference}
+
+**Answer:** ${difference}`;
+            }
+            
+            if (operations.includes('*')) {
+                const product = num1 * num2;
+                return `Let's solve this multiplication problem step by step!
+
+**Problem:** ${problemText}
+
+**Step 1:** Multiply the numbers
+${num1} × ${num2} = ${product}
+
+**Answer:** ${product}`;
+            }
+            
+            if (operations.includes('/')) {
+                const quotient = num1 / num2;
+                return `Let's solve this division problem step by step!
+
+**Problem:** ${problemText}
+
+**Step 1:** Divide the first number by the second
+${num1} ÷ ${num2} = ${quotient}
+
+**Answer:** ${quotient}`;
+            }
+            
+            return "I can see this is a math problem, but I need to understand what operation to perform.";
+        }
+
+        function solveGenericMathProblem(problemText, numbers) {
+            if (numbers.length === 2) {
+                const num1 = parseInt(numbers[0]);
+                const num2 = parseInt(numbers[1]);
+                
+                const sum = num1 + num2;
+                return `Let's solve this math problem step by step!
+
+**Problem:** ${problemText}
+
+**Step 1:** I can see we have two numbers: ${num1} and ${num2}
+**Step 2:** Let's add them: ${num1} + ${num2} = ${sum}
+
+**Answer:** ${sum}`;
+            }
+            
+            const sum = numbers.reduce((acc, num) => acc + parseInt(num), 0);
+            return `Let's solve this math problem step by step!
+
+**Problem:** ${problemText}
+
+**Step 1:** I can see we have these numbers: ${numbers.join(', ')}
+**Step 2:** Let's add them together: ${numbers.join(' + ')} = ${sum}
+
+**Answer:** ${sum}`;
+        }
+
+        // Test the functions
+        const testProblems = [
+            "2 + 3 = ?",
+            "15 + 27 = ?",
+            "8 × 7 = ?",
+            "100 - 25 = ?",
+            "2x + 5 = 13",
+            "What is the total of 12 + 8 + 15?"
+        ];
+
+        const results = document.getElementById('results');
+        
+        testProblems.forEach(problem => {
+            const result = solveMathProblem(problem);
+            const div = document.createElement('div');
+            div.style.cssText = 'margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;';
+            div.innerHTML = `<strong>Problem:</strong> ${problem}<br><br><strong>Result:</strong><br>${result}`;
+            results.appendChild(div);
+        });
+    </script>
+</body>
+</html>

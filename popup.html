@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tutor Assistant</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <h1>🎓 AI Tutor</h1>
+      <p>Your intelligent learning companion</p>
+    </div>
+    
+    <div class="settings-section">
+      <h3>Settings</h3>
+      <div class="status-message">
+        <div class="status-indicator success">✓</div>
+        <span>Free Mode Active - No API Key Required!</span>
+      </div>
+      <p class="settings-description">
+        This extension works completely offline with built-in tutoring responses. 
+        No external API calls or API keys needed!
+      </p>
+    </div>
+    
+    <div class="features-section">
+      <h3>Features</h3>
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="icon">📚</span>
+          <span>Math: Step-by-step examples</span>
+        </div>
+        <div class="feature-item">
+          <span class="icon">📖</span>
+          <span>Reading: Text analysis & notes</span>
+        </div>
+        <div class="feature-item">
+          <span class="icon">✍️</span>
+          <span>Writing: Structure guidance</span>
+        </div>
+        <div class="feature-item">
+          <span class="icon">📝</span>
+          <span>Grammar: Rule explanations</span>
+        </div>
+        <div class="feature-item">
+          <span class="icon">💬</span>
+          <span>Vocabulary: Contextual hints</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="instructions">
+      <h3>How to Use</h3>
+      <ol>
+        <li>Navigate to any educational website</li>
+        <li>Click the "I Need Help" button</li>
+        <li>Select text or ask for assistance</li>
+        <li>Get step-by-step guidance</li>
+      </ol>
+    </div>
+    
+    <div class="status" id="status">
+      <span class="status-indicator" id="statusIndicator">●</span>
+      <span id="statusText">Ready to help!</span>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis Test - Math Graphs, Charts & Diagrams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .image-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .test-image {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        .test-image:hover {
+            border-color: #667eea;
+        }
+        .image-info {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Image Analysis Test - Math Graphs, Charts & Diagrams</h1>
+    
+    <div class="instructions">
+        <h3>🎯 How to Test Image Analysis:</h3>
+        <ol>
+            <li><strong>Enable Image Mode:</strong> Press <span class="keyboard-shortcut">Ctrl+Shift+A</span></li>
+            <li><strong>Click on any image</strong> below to select it</li>
+            <li><strong>Click "I Need Help"</strong> button</li>
+            <li><strong>Ask a question</strong> like "Analyze this graph" or "What does this chart show?"</li>
+            <li><strong>Use deselect:</strong> Press <span class="keyboard-shortcut">Ctrl+Shift+D</span> to clear selections</li>
+        </ol>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+        </ul>
+    </div>
+
+    <div class="image-section">
+        <h3>📊 Math Graph Example</h3>
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+CiAgPHRleHQgeD0iMjAwIiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MaW5lYXIgRnVuY3Rpb24gR3JhcGg8L3RleHQ+CiAgPHRleHQgeD0iMjAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0Ij5YIEF4aXM8L3RleHQ+CiAgPHRleHQgeD0iMjAwIiB5PSIyOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MDwvdGV4dD4KICA8dGV4dCB4PSIzODAiIHk9IjI5MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0Ij4xMDwvdGV4dD4KICA8dGV4dCB4PSIxMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIHRyYW5zZm9ybT0icm90YXRlKC05MCkiPllBcGlzPC90ZXh0PgogIDx0ZXh0IHg9IjEwIiB5PSIyMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MTU8L3RleHQ+CiAgPHRleHQgeD0iMTAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4zMDwvdGV4dD4KICA8bGluZSB4MT0iNDAiIHkxPSIyNjAiIHgyPSIzNjAiIHkyPSIxNDAiIHN0cm9rZT0iIzAwN2FjYyIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPGNpcmNsZSBjeD0iNDAiIGN5PSIyNjAiIHI9IjQiIGZpbGw9IiMwMDdhY2MiLz4KICA8Y2lyY2xlIGN4PSIxNjAiIGN5PSIyMjAiIHI9IjQiIGZpbGw9IiMwMDdhY2MiLz4KICA8Y2lyY2xlIGN4PSIyODAiIGN5PSIxODAiIHI9IjQiIGZpbGw9IiMwMDdhY2MiLz4KICA8Y2lyY2xlIGN4PSIzNjAiIGN5PSIxNDAiIHI9IjQiIGZpbGw9IiMwMDdhY2MiLz4KPC9zdmc+" 
+             alt="Linear function graph showing y = 2x + 10" 
+             class="test-image" 
+             title="Linear Function Graph">
+        <div class="image-info">
+            <strong>Test:</strong> Click this graph and ask "What is the slope of this line?" or "What is the y-intercept?"
+        </div>
+    </div>
+
+    <div class="image-section">
+        <h3>📈 Bar Chart Example</h3>
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+CiAgPHRleHQgeD0iMjAwIiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TdHVkZW50IFNjb3JlcyBieSBTdWJqZWN0PC90ZXh0PgogIDx0ZXh0IHg9IjIwIiB5PSIyODAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCI+U3ViamVjdDwvdGV4dD4KICA8dGV4dCB4PSIyMDAiIHk9IjI5MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4wPC90ZXh0PgogIDx0ZXh0IHg9IjEwIiB5PSIyMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+ODA8L3RleHQ+CiAgPHRleHQgeD0iMTAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj45MDwvdGV4dD4KICA8dGV4dCB4PSIxMCIgeT0iMTAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjEwMDwvdGV4dD4KICA8cmVjdCB4PSI0MCIgeT0iMjAwIiB3aWR0aD0iNDAiIGhlaWdodD0iODAiIGZpbGw9IiM0Q0FGNTAiLz4KICA8dGV4dCB4PSI2MCIgeT0iMzEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1hdGg8L3RleHQ+CiAgPHJlY3QgeD0iMTAwIiB5PSIxNTAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMzAiIGZpbGw9IiM2NjdlZWEiLz4KICA8dGV4dCB4PSIxMjAiIHk9IjMxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TY2llbmNlPC90ZXh0PgogIDxyZWN0IHg9IjE2MCIgeT0iMTgwIiB3aWR0aD0iNDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRkY5ODAwIi8+CiAgPHRleHQgeD0iMTgwIiB5PSIzMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RW5nbGlzaDwvdGV4dD4KICA8cmVjdCB4PSIyMjAiIHk9IjE2MCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjEyMCIgZmlsbD0iI0ZGNjY2NiIvPgogIDx0ZXh0IHg9IjI0MCIgeT0iMzEwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkhpc3Rvcnk8L3RleHQ+CiAgPHJlY3QgeD0iMjgwIiB5PSIxNzAiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMTAiIGZpbGw9IiM5QzI3QjAiLz4KICA8dGV4dCB4PSIzMDAiIHk9IjMxMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BcnQ8L3RleHQ+Cjwvc3ZnPg==" 
+             alt="Bar chart showing student scores by subject" 
+             class="test-image" 
+             title="Student Scores Bar Chart">
+        <div class="image-info">
+            <strong>Test:</strong> Click this chart and ask "Which subject has the highest score?" or "What's the average score?"
+        </div>
+    </div>
+
+    <div class="image-section">
+        <h3>🔬 Process Diagram Example</h3>
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+CiAgPHRleHQgeD0iMjAwIiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5QaG90b3N5bnRoZXNpcyBQcm9jZXNzPC90ZXh0PgogIDxyZWN0IHg9IjUwIiB5PSI1MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRkZGRkZGIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgogIDx0ZXh0IHg9IjkwIiB5PSI3NSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TdW5saWdodDwvdGV4dD4KICA8YXJyb3cgeDE9IjEzMCIgeTE9IjcwIiB4Mj0iMTcwIiB5Mj0iNzAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHJlY3QgeD0iMTcwIiB5PSI1MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRkZGRkZGIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgogIDx0ZXh0IHg9IjIxMCIgeT0iNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2hsb3JvcGh5bGw8L3RleHQ+CiAgPGFycm93IHgxPSIyMTAiIHkxPSI5MCIgeDI9IjIxMCIgeTI9IjEzMCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIxNzAiIHk9IjEzMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRkZGRkZGIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIvPgogIDx0ZXh0IHg9IjIxMCIgeT0iMTU1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdsdWNvc2U8L3RleHQ+CiAgPGFycm93IHgxPSIyMTAiIHkxPSIxNzAiIHgyPSIyMTAiIHkyPSIyMTAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHJlY3QgeD0iMTcwIiB5PSIyMTAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI0MCIgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8dGV4dCB4PSIyMTAiIHk9IjIzNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5PeHlnZW48L3RleHQ+Cjwvc3ZnPg==" 
+             alt="Photosynthesis process diagram" 
+             class="test-image" 
+             title="Photosynthesis Process">
+        <div class="image-info">
+            <strong>Test:</strong> Click this diagram and ask "What are the steps in photosynthesis?" or "What are the inputs and outputs?"
+        </div>
+    </div>
+
+    <div class="image-section">
+        <h3>📊 Pie Chart Example</h3>
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxNTAiIHI9IjEyMCIgZmlsbD0iI2Y4ZjlmYSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8dGV4dCB4PSIxNTAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZydWl0IFNhbGVzPC90ZXh0PgogIDxwYXRoIGQ9Ik0gMTUwIDE1MCBMIDE1MCAzMCBBIDEyMCAxMjAgMCAwIDEgMjU1IDEwNSBaIiBmaWxsPSIjRkY5ODAwIi8+CiAgPHRleHQgeD0iMjAwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiI+QXBwbGVzIDQwJTwvdGV4dD4KICA8cGF0aCBkPSJNIDE1MCAxNTAgTCAyNTUgMTA1IEEgMTIwIDEyMCAwIDEgMSAzMDAgMTUwIFoiIGZpbGw9IiM2NjdlZWEiLz4KICA8dGV4dCB4PSIyNzAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIj5CYW5hbmFzIDMwJTwvdGV4dD4KICA8cGF0aCBkPSJNIDE1MCAxNTAgTCAzMDAgMTUwIEEgMTIwIDEyMCAwIDEgMSAyNTUgMTk1IFoiIGZpbGw9IiM0Q0FGNTAiLz4KICA8dGV4dCB4PSIyMDAiIHk9IjIwMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIj5PcmFuZ2VzIDIwJTwvdGV4dD4KICA8cGF0aCBkPSJNIDE1MCAxNTAgTCAyNTUgMTk1IEEgMTIwIDEyMCAwIDAgMSAxNTAgMzAgWiIgZmlsbD0iI0ZGNjY2NiIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiPk90aGVyIDEwJTwvdGV4dD4KPC9zdmc+" 
+             alt="Pie chart showing fruit sales distribution" 
+             class="test-image" 
+             title="Fruit Sales Pie Chart">
+        <div class="image-info">
+            <strong>Test:</strong> Click this pie chart and ask "What percentage of sales are apples?" or "Which fruit has the highest sales?"
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>🎯 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Image Detection:</strong> AI should detect the type of image (graph, chart, diagram)</li>
+            <li><strong>✅ Step-by-Step Analysis:</strong> AI should guide you through analyzing the image systematically</li>
+            <li><strong>✅ Specific Guidance:</strong> AI should ask relevant questions about the image content</li>
+            <li><strong>✅ Visual Elements:</strong> AI should help identify axes, labels, data points, etc.</li>
+            <li><strong>✅ Problem-Solving:</strong> AI should help you extract information from the image</li>
+        </ul>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>💡 Pro Tips:</h3>
+        <ul>
+            <li><strong>Click images</strong> to select them for analysis</li>
+            <li><strong>Ask specific questions</strong> like "What's the slope?" or "Which category is largest?"</li>
+            <li><strong>Use Ctrl+Shift+D</strong> to clear all selections and start over</li>
+            <li><strong>Try different question types</strong> to test the AI's analysis capabilities</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Image analysis test loaded');
+            
+            // Add click handlers to images
+            document.querySelectorAll('.test-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    console.log('Image clicked:', this.alt);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

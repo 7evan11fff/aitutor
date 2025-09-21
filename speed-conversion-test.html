@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Conversion Test - AI Should Solve These</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .conversion-problem {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid #e2e8f0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .conversion-problem:hover {
+            background: #e6f3ff;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .expected {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #48bb78;
+        }
+        .wrong-answer {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #f56565;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏃 Speed Conversion Test - AI Should Solve These Correctly</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Instructions:</h3>
+        <ol>
+            <li><strong>Select each speed problem below</strong> (click and drag to highlight)</li>
+            <li><strong>Click "I Need Help"</strong> button</li>
+            <li><strong>Ask:</strong> "Solve this conversion" or "What's the answer?"</li>
+            <li><strong>Check:</strong> Does the AI give you the correct converted value?</li>
+        </ol>
+    </div>
+
+    <div class="conversion-problem">
+        A sailfish can achieve a speed of 108 kilometers per hour. What is this speed in kilometers per minute?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 1.8 kilometers per minute
+        <br><strong>Calculation:</strong> 108 km/h ÷ 60 min/h = 1.8 km/min
+    </div>
+    <div class="wrong-answer">
+        <strong>❌ Wrong Answer (what AI gave before):</strong> 108 (treating it as 108 = 108)
+    </div>
+
+    <div class="conversion-problem">
+        A car travels at 90 kilometers per hour. What is this speed in kilometers per minute?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 1.5 kilometers per minute
+        <br><strong>Calculation:</strong> 90 km/h ÷ 60 min/h = 1.5 km/min
+    </div>
+
+    <div class="conversion-problem">
+        A runner completes 12 kilometers per hour. How many kilometers per minute is this?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 0.2 kilometers per minute
+        <br><strong>Calculation:</strong> 12 km/h ÷ 60 min/h = 0.2 km/min
+    </div>
+
+    <div class="conversion-problem">
+        A train moves at 180 kilometers per hour. What is this speed in kilometers per minute?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 3 kilometers per minute
+        <br><strong>Calculation:</strong> 180 km/h ÷ 60 min/h = 3 km/min
+    </div>
+
+    <div class="conversion-problem">
+        A cyclist rides at 30 kilometers per hour. Convert this to kilometers per minute.
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 0.5 kilometers per minute
+        <br><strong>Calculation:</strong> 30 km/h ÷ 60 min/h = 0.5 km/min
+    </div>
+
+    <div class="instructions">
+        <h3>🔍 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Correct Speed Conversion:</strong> AI should divide by 60 (not add numbers)</li>
+            <li><strong>✅ Proper Units:</strong> Should show km/h to km/min conversion</li>
+            <li><strong>✅ Step-by-Step Work:</strong> Show the division process clearly</li>
+            <li><strong>✅ Correct Final Answer:</strong> Should give the right numerical result</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>🐛 If Still Getting Wrong Answers:</h3>
+        <ol>
+            <li>Make sure you're selecting the ENTIRE problem text</li>
+            <li>Try asking "Convert this speed" or "What's the answer in km/min?"</li>
+            <li>Check browser console (F12) for error messages</li>
+            <li>Look for "per hour" and "per minute" in the problem text</li>
+        </ol>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Speed conversion test loaded');
+            
+            // Add click handlers to problems
+            document.querySelectorAll('.conversion-problem').forEach(problem => {
+                problem.addEventListener('click', function() {
+                    // Select the text
+                    const range = document.createRange();
+                    range.selectNodeContents(this);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    console.log('Selected speed conversion problem:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

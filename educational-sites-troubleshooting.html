@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Sites Troubleshooting Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .troubleshooting {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .step {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #6c757d;
+        }
+        .warning {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #dc3545;
+        }
+        .success {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+        }
+        .code {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            border: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Educational Sites Troubleshooting Guide</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Why It Works on Test Sites But Not Real Educational Sites:</h3>
+        <p>Educational platforms like Math Academy, Khan Academy, and school software often use complex HTML structures, custom CSS classes, and JavaScript that can interfere with our detection. This guide helps you troubleshoot and work around these issues.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ All Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+G</span> - Toggle aggressive mode (NEW!)</li>
+        </ul>
+    </div>
+
+    <div class="troubleshooting">
+        <h3>🔍 Step-by-Step Troubleshooting:</h3>
+        
+        <div class="step">
+            <h4>Step 1: Try Aggressive Mode</h4>
+            <p>If normal clicking doesn't work, try aggressive mode:</p>
+            <ol>
+                <li><strong>Press Ctrl+Shift+G</strong> to enable aggressive mode</li>
+                <li><strong>Click on any element</strong> that contains educational content</li>
+                <li><strong>Look for orange outline</strong> - indicates successful detection</li>
+                <li><strong>Click "I Need Help"</strong> to analyze the content</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h4>Step 2: Check Browser Console</h4>
+            <p>Open browser console (F12) to see debug information:</p>
+            <ol>
+                <li><strong>Press F12</strong> to open developer tools</li>
+                <li><strong>Click on Console tab</strong></li>
+                <li><strong>Click on educational content</strong></li>
+                <li><strong>Look for debug messages</strong> showing what was detected</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h4>Step 3: Try Different Elements</h4>
+            <p>Educational sites often have multiple ways to display the same content:</p>
+            <ul>
+                <li><strong>Click on the problem text</strong> (not just buttons)</li>
+                <li><strong>Click on answer choices</strong> (A, B, C, D)</li>
+                <li><strong>Click on input fields</strong> with math problems</li>
+                <li><strong>Click on the question itself</strong></li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h4>Step 4: Use Text Selection as Fallback</h4>
+            <p>If clicking doesn't work, try selecting text:</p>
+            <ol>
+                <li><strong>Highlight the text</strong> you want to analyze</li>
+                <li><strong>Click "I Need Help"</strong> button</li>
+                <li><strong>Ask your question</strong> about the selected text</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="troubleshooting">
+        <h3>🎯 Common Educational Sites & Solutions:</h3>
+        
+        <div class="step">
+            <h4>Khan Academy</h4>
+            <p><strong>Problem:</strong> Uses complex Perseus widgets and custom elements</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Try clicking on the problem text itself</li>
+                <li>Use aggressive mode (Ctrl+Shift+G)</li>
+                <li>Select text manually if clicking doesn't work</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h4>Math Academy / Mathway</h4>
+            <p><strong>Problem:</strong> Uses custom math rendering and interactive elements</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Click on the math expression or problem</li>
+                <li>Try clicking on answer choices</li>
+                <li>Use aggressive mode for difficult elements</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h4>School Learning Management Systems</h4>
+            <p><strong>Problem:</strong> Custom interfaces and restricted JavaScript</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Enable aggressive mode</li>
+                <li>Try clicking on different parts of the problem</li>
+                <li>Use text selection as backup</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h4>Google Classroom / Canvas</h4>
+            <p><strong>Problem:</strong> Embedded content and iframe restrictions</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Click on the actual problem text</li>
+                <li>Try selecting text manually</li>
+                <li>Use aggressive mode for interactive elements</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="troubleshooting">
+        <h3>🛠️ Advanced Troubleshooting:</h3>
+        
+        <div class="step">
+            <h4>Check Extension Status</h4>
+            <p>Make sure the extension is working:</p>
+            <ol>
+                <li>Go to <code>chrome://extensions/</code></li>
+                <li>Find "AI Tutor Assistant"</li>
+                <li>Make sure it's enabled</li>
+                <li>Check if there are any error messages</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h4>Test on Different Sites</h4>
+            <p>Verify the extension works elsewhere:</p>
+            <ol>
+                <li>Try on a simple website first</li>
+                <li>Test on our test pages</li>
+                <li>Then try on the educational site</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h4>Clear and Reset</h4>
+            <p>If nothing works, try resetting:</p>
+            <ol>
+                <li>Press <span class="keyboard-shortcut">Ctrl+Shift+D</span> to clear everything</li>
+                <li>Refresh the page</li>
+                <li>Try again with aggressive mode</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="warning">
+        <h3>⚠️ Common Issues & Solutions:</h3>
+        <ul>
+            <li><strong>No outline appears:</strong> Try aggressive mode (Ctrl+Shift+G)</li>
+            <li><strong>Element not detected:</strong> Check browser console for debug info</li>
+            <li><strong>Extension not working:</strong> Refresh page and check extension status</li>
+            <li><strong>Content not analyzable:</strong> Try selecting text manually</li>
+            <li><strong>Site blocks extension:</strong> Try on a different educational site</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <h3>✅ Success Indicators:</h3>
+        <ul>
+            <li><strong>Blue outline:</strong> Normal detection working</li>
+            <li><strong>Orange outline:</strong> Aggressive mode working</li>
+            <li><strong>Tooltip appears:</strong> Content detected successfully</li>
+            <li><strong>AI responds:</strong> Content is analyzable</li>
+            <li><strong>Console logs:</strong> Debug information available</li>
+        </ul>
+    </div>
+
+    <div class="troubleshooting">
+        <h3>📞 Still Having Issues?</h3>
+        <p>If you're still having trouble on specific educational sites:</p>
+        <ol>
+            <li><strong>Check the browser console</strong> (F12) for error messages</li>
+            <li><strong>Try aggressive mode</strong> (Ctrl+Shift+G)</li>
+            <li><strong>Use text selection</strong> as a fallback</li>
+            <li><strong>Test on different sites</strong> to isolate the issue</li>
+            <li><strong>Check extension permissions</strong> in chrome://extensions/</li>
+        </ol>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Pro Tips for Educational Sites:</h3>
+        <ul>
+            <li><strong>Start with aggressive mode</strong> on difficult sites</li>
+            <li><strong>Click on the actual problem text</strong>, not just buttons</li>
+            <li><strong>Use text selection</strong> when clicking doesn't work</li>
+            <li><strong>Check console logs</strong> for debugging information</li>
+            <li><strong>Try different elements</strong> on the same page</li>
+            <li><strong>Clear and reset</strong> if things get stuck</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Educational sites troubleshooting guide loaded');
+        });
+    </script>
+</body>
+</html>

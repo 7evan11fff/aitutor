@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX Math Notation Test - Fractions, Multiple Choice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .math-problem {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .math-problem:hover {
+            background: #e6fffa;
+        }
+        .latex-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 5px 0;
+        }
+        .multiple-choice {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .multiple-choice:hover {
+            background: #ffeaa7;
+        }
+        .choice {
+            margin: 5px 0;
+            padding: 5px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📐 LaTeX Math Notation Test - Fractions, Multiple Choice</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test LaTeX Math Parsing:</h3>
+        <p>This test verifies that the AI tutor can correctly parse LaTeX math notation like <code>\dfrac{14s + 49}{7t}</code> and handle multiple choice questions without incorrectly adding up choice letters and numbers.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+G</span> - Toggle aggressive mode</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Click on LaTeX math problems below</strong> - should get blue outline</li>
+                <li><strong>Click "I Need Help"</strong> to analyze the problem</li>
+                <li><strong>Verify LaTeX parsing</strong> - should convert \dfrac{a}{b} to (a)/(b)</li>
+                <li><strong>Check multiple choice detection</strong> - should not add up choice letters</li>
+                <li><strong>Look for proper math analysis</strong> instead of random number addition</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔢 LaTeX Fraction Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{14s + 49}{7t} =
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{2x + 6}{4} =
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{3y - 9}{3} =
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{5a + 10}{5} =
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{8b - 16}{8} =
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>❓ Multiple Choice Questions (Click These):</h3>
+        <div class="multiple-choice" onclick="alert('Question clicked!')">
+            <strong>Question 1?</strong><br>
+            \dfrac{14s + 49}{7t} = <br>
+            <div class="choice">a) 2s + 7</div>
+            <div class="choice">b) 2s + 7t</div>
+            <div class="choice">c) s + 7</div>
+            <div class="choice">d) 2s + 7t</div>
+            <div class="choice">e) 2s + 77</div>
+            <button>Submit</button>
+        </div>
+        
+        <div class="multiple-choice" onclick="alert('Question clicked!')">
+            <strong>Question 2?</strong><br>
+            \dfrac{2x + 6}{4} = <br>
+            <div class="choice">a) x/2 + 3/2</div>
+            <div class="choice">b) x + 3</div>
+            <div class="choice">c) 2x + 6</div>
+            <div class="choice">d) x/2 + 6</div>
+            <div class="choice">e) 2x + 3</div>
+            <button>Submit</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🧮 Mixed LaTeX Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{3x + 9}{3} + \dfrac{2y - 4}{2} =
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{4a + 8}{4} \times \dfrac{6b - 12}{6} =
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            \dfrac{5m + 15}{5} - \dfrac{3n - 6}{3} =
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📊 LaTeX Examples (What Should Happen):</h3>
+        <div class="latex-example">
+            <strong>Input:</strong> \dfrac{14s + 49}{7t} =<br>
+            <strong>Should Parse As:</strong> (14s + 49)/(7t) =<br>
+            <strong>Should NOT Parse As:</strong> 14s+497t= (incorrect)
+        </div>
+        <div class="latex-example">
+            <strong>Input:</strong> Question 1? a2+7s7b2+7stcs+7td2s+7te2s+77Submit<br>
+            <strong>Should Recognize As:</strong> Multiple choice question<br>
+            <strong>Should NOT Do:</strong> Add up all numbers (1+2+7+7+2+7+7+2+7+2+7+7+77)
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ LaTeX Parsing:</strong> \dfrac{a}{b} should become (a)/(b)</li>
+            <li><strong>✅ Multiple Choice Detection:</strong> Should recognize a2, b2, c2, d2, e2 patterns</li>
+            <li><strong>✅ Proper Math Analysis:</strong> Should analyze the actual math, not add random numbers</li>
+            <li><strong>✅ Educational Guidance:</strong> Should help understand the problem, not give answers</li>
+            <li><strong>✅ No Random Addition:</strong> Should not add up choice letters and numbers</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Advanced Testing:</h3>
+        <ol>
+            <li><strong>Test LaTeX Fractions:</strong> \dfrac, \frac, complex expressions</li>
+            <li><strong>Test Multiple Choice:</strong> Various choice patterns (a2, b2, etc.)</li>
+            <li><strong>Test Mixed Content:</strong> LaTeX + multiple choice together</li>
+            <li><strong>Test Edge Cases:</strong> Malformed LaTeX, unusual patterns</li>
+            <li><strong>Test Real Sites:</strong> Try on actual educational platforms</li>
+        </ol>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>LaTeX Conversion:</strong> \dfrac{14s + 49}{7t} → (14s + 49)/(7t)</li>
+            <li><strong>Multiple Choice Recognition:</strong> Detects a2, b2, c2, d2, e2 patterns</li>
+            <li><strong>Educational Response:</strong> Helps understand the math, doesn't give answers</li>
+            <li><strong>No Random Math:</strong> Doesn't add up choice letters and numbers</li>
+            <li><strong>Proper Analysis:</strong> Focuses on the actual mathematical expression</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('LaTeX math notation test loaded');
+            
+            // Add click handlers for demonstration
+            document.querySelectorAll('.math-problem, .multiple-choice').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    console.log('LaTeX element clicked:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

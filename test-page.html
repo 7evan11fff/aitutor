@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tutor Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .math-section {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .reading-section {
+            background: #f0fff0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .writing-section {
+            background: #fff8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .problem {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 15px;
+            border-left: 4px solid #007acc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Tutor Extension Test Page</h1>
+    
+    <div class="instructions">
+      <h3>How to Test the Extension:</h3>
+      <ol>
+        <li>Load the AI Tutor extension in Chrome</li>
+        <li>No API key needed - it works completely offline!</li>
+        <li>Click the "I Need Help" floating button</li>
+        <li>Try the examples below to test different features</li>
+      </ol>
+      <div style="background: #e6f3ff; padding: 15px; border-radius: 8px; margin: 10px 0;">
+        <strong>🎉 Free Mode:</strong> This extension works without any API keys or external services. 
+        It uses built-in intelligent responses to guide you through learning!
+      </div>
+    </div>
+
+    <div class="math-section">
+        <h2>📚 Math Section</h2>
+        <p>Test the math tutoring features:</p>
+        
+        <div class="problem">
+            Solve for x: 2x + 5 = 13
+        </div>
+        
+        <p>Try asking: "I need help with this algebra problem" or "Can you show me how to solve equations like this?"</p>
+        
+        <div class="problem">
+            Find the area of a circle with radius 7 cm. (Use π ≈ 3.14)
+        </div>
+        
+        <p>Try asking: "How do I find the area of a circle?"</p>
+    </div>
+
+    <div class="reading-section">
+        <h2>📖 Reading Section</h2>
+        <p>Select any text below and ask for help:</p>
+        
+        <p>
+            The Industrial Revolution was a period of major industrialization and innovation during the late 18th and early 19th centuries. The Industrial Revolution began in Great Britain and quickly spread throughout the world. The American Industrial Revolution commonly referred to as the Second Industrial Revolution, started sometime between 1820 and 1870.
+        </p>
+        
+        <p>
+            This period saw the mechanization of agriculture and textile manufacturing and a revolution in power, including steam ships and railroads, that affected social, cultural and economic conditions. The Industrial Revolution was a time when the manufacturing of goods moved from small shops and homes to large factories. This shift brought about changes in culture as people moved from rural areas to big cities in order to work.
+        </p>
+        
+        <p><strong>Questions to try:</strong></p>
+        <ul>
+            <li>Select the first paragraph and ask: "Can you help me understand this passage?"</li>
+            <li>Ask: "What was the Industrial Revolution?"</li>
+            <li>Ask: "How can I find the main idea of this text?"</li>
+        </ul>
+    </div>
+
+    <div class="writing-section">
+        <h2>✍️ Writing Section</h2>
+        <p>Test writing assistance features:</p>
+        
+        <p><strong>Sample Essay Topic:</strong> "The Impact of Technology on Education"</p>
+        
+        <p><strong>Sample Paragraph (select this text):</strong></p>
+        <p style="background: #f9f9f9; padding: 15px; border: 1px solid #ddd;">
+            Technology has changed education in many ways. Students can now access information online. Teachers use computers in the classroom. Some people think this is good. Others think it is bad. I think technology helps students learn better.
+        </p>
+        
+        <p><strong>Try asking:</strong></p>
+        <ul>
+            <li>Select the paragraph above and ask: "How can I improve this paragraph?"</li>
+            <li>Ask: "How should I structure an essay about technology?"</li>
+            <li>Ask: "What are some good topic sentences for this essay?"</li>
+        </ul>
+    </div>
+
+    <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h2>🔤 Grammar & Vocabulary Section</h2>
+        <p>Test grammar and vocabulary features:</p>
+        
+        <p><strong>Grammar Test:</strong> Select this sentence and ask about grammar: "The students were studying when the teacher arrived."</p>
+        
+        <p><strong>Vocabulary Test:</strong> Select these words and ask for help: "serendipity", "ubiquitous", "ephemeral"</p>
+        
+        <p><strong>Try asking:</strong></p>
+        <ul>
+            <li>"What tense is this sentence in?"</li>
+            <li>"What does this word mean?"</li>
+            <li>"Can you give me hints about this vocabulary word?"</li>
+        </ul>
+    </div>
+
+    <div style="background: #fff5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h2>🎯 Testing Checklist</h2>
+        <ul>
+            <li>□ Floating "I Need Help" button appears</li>
+            <li>□ Widget opens when button is clicked</li>
+            <li>□ API key can be set and saved</li>
+            <li>□ Math problems generate similar examples</li>
+            <li>□ Text selection works and gets highlighted</li>
+            <li>□ Reading comprehension provides guidance</li>
+            <li>□ Writing advice focuses on structure</li>
+            <li>□ Grammar explanations don't rewrite text</li>
+            <li>□ Vocabulary help provides hints, not definitions</li>
+            <li>□ AI never gives direct answers</li>
+        </ul>
+    </div>
+
+    <script>
+        // Add some interactive elements for testing
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('AI Tutor Test Page loaded');
+            console.log('Look for the "I Need Help" floating button in the top right corner');
+        });
+    </script>
+</body>
+</html>

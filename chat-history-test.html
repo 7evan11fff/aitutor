@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History Test - Persistent Messages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .math-problem {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border: 2px dashed #667eea;
+            cursor: pointer;
+        }
+        .math-problem:hover {
+            background: #e6f3ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>💬 Chat History Test - Persistent Messages</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Chat History Persistence:</h3>
+        <p>This test verifies that your chat messages are saved and restored when you close and reopen the "I Need Help" button.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Click "I Need Help"</strong> to open the chat widget</li>
+                <li><strong>Ask a question</strong> like "What is 2 + 2?"</li>
+                <li><strong>Wait for the AI response</strong></li>
+                <li><strong>Ask another question</strong> like "Explain algebra"</li>
+                <li><strong>Close the widget</strong> (click X or click outside)</li>
+                <li><strong>Click "I Need Help" again</strong> - your messages should still be there!</li>
+                <li><strong>Ask more questions</strong> to test the 10-message limit</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🧮 Sample Math Problems to Test:</h3>
+        <div class="math-problem">
+            <strong>Problem 1:</strong> Solve for x: 2x + 5 = 13
+        </div>
+        <div class="math-problem">
+            <strong>Problem 2:</strong> What is the area of a rectangle with length 8 cm and width 5 cm?
+        </div>
+        <div class="math-problem">
+            <strong>Problem 3:</strong> Convert 2.5 kilometers to meters
+        </div>
+        <div class="math-problem">
+            <strong>Problem 4:</strong> A car travels 120 miles in 2 hours. What is its average speed?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📚 Sample Reading Questions to Test:</h3>
+        <div class="math-problem">
+            <strong>Question 1:</strong> What is the main idea of this passage?
+        </div>
+        <div class="math-problem">
+            <strong>Question 2:</strong> Can you summarize this text for me?
+        </div>
+        <div class="math-problem">
+            <strong>Question 3:</strong> What are the key points in this article?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Message Persistence:</strong> Messages should remain when you close and reopen the widget</li>
+            <li><strong>✅ 10-Message Limit:</strong> Only the last 10 messages should be kept</li>
+            <li><strong>✅ Clear Function:</strong> "Clear" button should remove all chat history</li>
+            <li><strong>✅ Message Order:</strong> Messages should appear in chronological order</li>
+            <li><strong>✅ User vs AI:</strong> Messages should be clearly labeled as "You" or "AI Tutor"</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>🔍 Advanced Testing:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Test 10+ Messages:</strong> Ask more than 10 questions to see if old messages are removed</li>
+                <li><strong>Test Clear Button:</strong> Use the "Clear" button to verify it removes all history</li>
+                <li><strong>Test Page Refresh:</strong> Refresh the page and check if history persists</li>
+                <li><strong>Test Different Sites:</strong> Try the extension on different websites</li>
+                <li><strong>Test Multi-Select:</strong> Use Shift+Alt+M to test multi-select with chat history</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>Messages persist</strong> when you close and reopen the widget</li>
+            <li><strong>Only last 10 messages</strong> are kept (older ones are automatically removed)</li>
+            <li><strong>Clear button</strong> removes all chat history and resets to welcome message</li>
+            <li><strong>Messages are saved</strong> to browser's localStorage</li>
+            <li><strong>History loads automatically</strong> when you open the widget</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Chat history test loaded');
+            
+            // Add click handlers to math problems
+            document.querySelectorAll('.math-problem').forEach(problem => {
+                problem.addEventListener('click', function() {
+                    // Select the text
+                    const range = document.createRange();
+                    range.selectNodeContents(this);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    console.log('Selected problem:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

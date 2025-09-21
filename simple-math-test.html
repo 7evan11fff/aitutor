@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Math Test - AI Should Solve These</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .math-problem {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid #e2e8f0;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .math-problem:hover {
+            background: #e6f3ff;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .expected {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #48bb78;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧮 Simple Math Test - AI Should Solve These</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Instructions:</h3>
+        <ol>
+            <li><strong>Select each math problem below</strong> (click and drag to highlight)</li>
+            <li><strong>Click "I Need Help"</strong> button</li>
+            <li><strong>Ask:</strong> "Solve this problem" or "What's the answer?"</li>
+            <li><strong>Check:</strong> Does the AI give you the actual answer?</li>
+        </ol>
+    </div>
+
+    <div class="math-problem">
+        2 + 3 = ?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 5
+    </div>
+
+    <div class="math-problem">
+        15 + 27 = ?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 42
+    </div>
+
+    <div class="math-problem">
+        8 × 7 = ?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 56
+    </div>
+
+    <div class="math-problem">
+        100 - 25 = ?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 75
+    </div>
+
+    <div class="math-problem">
+        2x + 5 = 13
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> x = 4
+    </div>
+
+    <div class="math-problem">
+        Find the area of a circle with radius 5 cm
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 78.5 cm²
+    </div>
+
+    <div class="math-problem">
+        What is the total of 12 + 8 + 15?
+    </div>
+    <div class="expected">
+        <strong>Expected Answer:</strong> 35
+    </div>
+
+    <div class="instructions">
+        <h3>🔍 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Actual Answers:</strong> AI should give you the correct numerical answer</li>
+            <li><strong>✅ Step-by-Step Work:</strong> Show the calculation process</li>
+            <li><strong>✅ No Generic Questions:</strong> Should NOT ask "What numbers are given?"</li>
+            <li><strong>✅ Direct Solutions:</strong> Should solve the problem, not ask questions about it</li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>🐛 If Still Getting Generic Responses:</h3>
+        <ol>
+            <li>Make sure you're selecting the ENTIRE problem text</li>
+            <li>Try asking "Solve this" or "What's the answer?"</li>
+            <li>Check browser console (F12) for error messages</li>
+            <li>Try refreshing the page and extension</li>
+        </ol>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Simple math test loaded');
+            
+            // Add click handlers to problems
+            document.querySelectorAll('.math-problem').forEach(problem => {
+                problem.addEventListener('click', function() {
+                    // Select the text
+                    const range = document.createRange();
+                    range.selectNodeContents(this);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    
+                    console.log('Selected problem:', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

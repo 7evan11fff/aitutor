@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Selectable Elements Test - Buttons, Inputs, Math</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        .math-button {
+            background: #e6f3ff;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .math-button:hover {
+            background: #d1e7ff;
+        }
+        .question-button {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #8b6914;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .question-button:hover {
+            background: #ffeaa7;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        .math-input {
+            width: 200px;
+            padding: 8px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .question-input {
+            width: 300px;
+            padding: 8px;
+            border: 2px solid #ffc107;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .math-display {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-align: center;
+        }
+        .link-example {
+            color: #667eea;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .link-example:hover {
+            color: #4c51bf;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔘 Non-Selectable Elements Test - Buttons, Inputs, Math</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Non-Selectable Educational Content:</h3>
+        <p>This test verifies that buttons, inputs, and other non-selectable elements can still be analyzed by the AI tutor when they contain educational content.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Click on buttons below</strong> that contain math problems or questions</li>
+                <li><strong>Click on input fields</strong> with educational content</li>
+                <li><strong>Click on links</strong> with educational text</li>
+                <li><strong>Look for blue outline</strong> - indicates the element was detected</li>
+                <li><strong>Click "I Need Help"</strong> to analyze the clicked content</li>
+                <li><strong>Press Ctrl+Shift+D</strong> to clear all selections</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🧮 Math Problem Buttons (Click These):</h3>
+        <div class="button-group">
+            <button class="math-button" onclick="alert('Button clicked!')">Solve: 2x + 5 = 13</button>
+            <button class="math-button" onclick="alert('Button clicked!')">Calculate Area</button>
+            <button class="math-button" onclick="alert('Button clicked!')">Find x: 3x = 15</button>
+            <button class="math-button" onclick="alert('Button clicked!')">Evaluate: 5 + 3 × 2</button>
+            <button class="math-button" onclick="alert('Button clicked!')">Compute: 10% of 200</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>❓ Question Buttons (Click These):</h3>
+        <div class="button-group">
+            <button class="question-button" onclick="alert('Button clicked!')">What is photosynthesis?</button>
+            <button class="question-button" onclick="alert('Button clicked!')">How does gravity work?</button>
+            <button class="question-button" onclick="alert('Button clicked!')">Why do we need math?</button>
+            <button class="question-button" onclick="alert('Button clicked!')">Choose the correct answer</button>
+            <button class="question-button" onclick="alert('Button clicked!')">Identify the main idea</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Input Fields (Click These):</h3>
+        <div class="input-group">
+            <input type="text" class="math-input" placeholder="Enter: 2x + 5 = 13" value="">
+            <input type="text" class="math-input" placeholder="Calculate the area" value="">
+            <input type="text" class="question-input" placeholder="What is the capital of France?" value="">
+            <input type="text" class="question-input" placeholder="How do you solve this problem?" value="">
+            <input type="text" class="math-input" placeholder="Find the value of x" value="">
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔗 Educational Links (Click These):</h3>
+        <p>
+            <a href="#" class="link-example" onclick="return false;">Solve this algebra problem</a> |
+            <a href="#" class="link-example" onclick="return false;">What is the answer?</a> |
+            <a href="#" class="link-example" onclick="return false;">Calculate the result</a> |
+            <a href="#" class="link-example" onclick="return false;">Choose the correct option</a> |
+            <a href="#" class="link-example" onclick="return false;">Find the solution</a>
+        </p>
+    </div>
+
+    <div class="test-section">
+        <h3>📊 Math Display Elements (Click These):</h3>
+        <div class="math-display" onclick="alert('Math display clicked!')">
+            x² + 5x + 6 = 0
+        </div>
+        <div class="math-display" onclick="alert('Math display clicked!')">
+            ∫(2x + 3)dx = x² + 3x + C
+        </div>
+        <div class="math-display" onclick="alert('Math display clicked!')">
+            Area = π × r²
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Blue Outline:</strong> Clicked elements should get a blue outline</li>
+            <li><strong>✅ Tooltip Appears:</strong> Contextual tooltip should show</li>
+            <li><strong>✅ Content Detection:</strong> Math problems and questions should be detected</li>
+            <li><strong>✅ AI Analysis:</strong> Click "I Need Help" to analyze the content</li>
+            <li><strong>✅ Clear Function:</strong> Ctrl+Shift+D should remove all outlines</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Advanced Testing:</h3>
+        <ol>
+            <li><strong>Test Different Element Types:</strong> Try buttons, inputs, links, divs</li>
+            <li><strong>Test Mixed Content:</strong> Click elements with both math and questions</li>
+            <li><strong>Test Edge Cases:</strong> Try elements with only numbers or only text</li>
+            <li><strong>Test Clear Function:</strong> Verify all outlines are removed</li>
+            <li><strong>Test Real Websites:</strong> Try on actual educational sites</li>
+        </ol>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>Non-selectable elements</strong> can be clicked for analysis</li>
+            <li><strong>Blue outline</strong> indicates successful detection</li>
+            <li><strong>Content is extracted</strong> from text, placeholder, title, and alt attributes</li>
+            <li><strong>AI can analyze</strong> the extracted content normally</li>
+            <li><strong>Clear function works</strong> on all element types</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Non-selectable elements test loaded');
+            
+            // Add click handlers for demonstration
+            document.querySelectorAll('button, input, a, .math-display').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    console.log('Element clicked:', this.tagName, this.textContent || this.value || this.placeholder);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraction Math Test - Addition, Subtraction, Multiplication, Division</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .math-problem {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .math-problem:hover {
+            background: #e6fffa;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        .fraction-button {
+            background: #e6f3ff;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .fraction-button:hover {
+            background: #d1e7ff;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        .fraction-input {
+            width: 250px;
+            padding: 8px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧮 Fraction Math Test - Addition, Subtraction, Multiplication, Division</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Fraction Problem Solving:</h3>
+        <p>This test verifies that the AI tutor can correctly solve fraction problems including addition, subtraction, multiplication, and division. The extension should detect fractions and provide step-by-step solutions.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+G</span> - Toggle aggressive mode</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Steps:</h3>
+        <div class="test-steps">
+            <ol>
+                <li><strong>Click on fraction problems below</strong> - should get blue outline</li>
+                <li><strong>Click "I Need Help"</strong> to analyze the problem</li>
+                <li><strong>Verify step-by-step solution</strong> with fractions</li>
+                <li><strong>Check decimal conversion</strong> and final answer</li>
+                <li><strong>Try different operations</strong> (add, subtract, multiply, divide)</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>➕ Fraction Addition Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            1/2 + 1/4 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            2/3 + 1/6 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            3/4 + 2/5 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Add 1/3 and 2/9
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            What is 5/6 + 1/2?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>➖ Fraction Subtraction Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            3/4 - 1/4 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            5/6 - 1/3 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            7/8 - 1/2 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Subtract 1/4 from 3/4
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            What is 4/5 - 2/3?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>✖️ Fraction Multiplication Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            1/2 × 1/3 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            2/3 × 3/4 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            3/5 × 2/7 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Multiply 1/4 by 2/3
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            What is 4/9 × 3/8?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>➗ Fraction Division Problems (Click These):</h3>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            1/2 ÷ 1/4 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            3/4 ÷ 1/2 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            2/3 ÷ 1/6 = ?
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            Divide 5/6 by 2/3
+        </div>
+        <div class="math-problem" onclick="alert('Problem clicked!')">
+            What is 7/8 ÷ 1/4?
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔘 Fraction Buttons (Click These):</h3>
+        <div class="button-group">
+            <button class="fraction-button" onclick="alert('Button clicked!')">Solve: 1/2 + 1/3</button>
+            <button class="fraction-button" onclick="alert('Button clicked!')">Calculate: 3/4 × 2/5</button>
+            <button class="fraction-button" onclick="alert('Button clicked!')">Find: 5/6 - 1/2</button>
+            <button class="fraction-button" onclick="alert('Button clicked!')">Divide: 2/3 ÷ 1/4</button>
+            <button class="fraction-button" onclick="alert('Button clicked!')">Add: 1/4 + 3/8</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Fraction Input Fields (Click These):</h3>
+        <div class="input-group">
+            <input type="text" class="fraction-input" placeholder="Enter: 1/2 + 1/4" value="">
+            <input type="text" class="fraction-input" placeholder="Calculate: 2/3 × 1/2" value="">
+            <input type="text" class="fraction-input" placeholder="Solve: 3/4 - 1/3" value="">
+            <input type="text" class="fraction-input" placeholder="Find: 4/5 ÷ 2/3" value="">
+            <input type="text" class="fraction-input" placeholder="Add: 1/6 + 2/9" value="">
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Fraction Detection:</strong> Should detect fractions like 1/2, 3/4, etc.</li>
+            <li><strong>✅ Step-by-Step Solution:</strong> Shows each step clearly</li>
+            <li><strong>✅ Decimal Conversion:</strong> Converts fractions to decimals for calculation</li>
+            <li><strong>✅ Fraction Conversion:</strong> Converts final answer back to fraction form</li>
+            <li><strong>✅ Operation Recognition:</strong> Correctly identifies add, subtract, multiply, divide</li>
+            <li><strong>✅ Mixed Numbers:</strong> Handles both fractions and whole numbers</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Advanced Testing:</h3>
+        <ol>
+            <li><strong>Test Different Operations:</strong> Try addition, subtraction, multiplication, division</li>
+            <li><strong>Test Mixed Problems:</strong> Fractions with whole numbers</li>
+            <li><strong>Test Complex Fractions:</strong> Multiple fractions in one problem</li>
+            <li><strong>Test Word Problems:</strong> Problems with fraction keywords</li>
+            <li><strong>Test Different Formats:</strong> Buttons, inputs, text elements</li>
+        </ol>
+    </div>
+
+    <div class="instructions">
+        <h3>💡 Expected Behavior:</h3>
+        <ul>
+            <li><strong>Fraction Recognition:</strong> Detects patterns like 1/2, 3/4, 5/6</li>
+            <li><strong>Operation Detection:</strong> Identifies add, subtract, multiply, divide</li>
+            <li><strong>Step-by-Step:</strong> Shows each calculation step</li>
+            <li><strong>Decimal Conversion:</strong> Converts fractions to decimals for calculation</li>
+            <li><strong>Fraction Result:</strong> Converts final answer back to fraction form</li>
+            <li><strong>Mixed Format:</strong> Shows both decimal and fraction answers</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Fraction math test loaded');
+            
+            // Add click handlers for demonstration
+            document.querySelectorAll('.math-problem, .fraction-button, .fraction-input').forEach(element => {
+                element.addEventListener('click', function(e) {
+                    console.log('Fraction element clicked:', this.textContent || this.value || this.placeholder);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

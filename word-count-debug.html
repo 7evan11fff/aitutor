@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-text {
+            background: #f0f9ff;
+            border: 2px solid #48bb78;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            cursor: pointer;
+            user-select: text;
+        }
+        .test-text:hover {
+            background: #e6fffa;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .debug-info {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Word Count Debug Test</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Instructions:</h3>
+        <ol>
+            <li><strong>Select the text below</strong> (it's exactly 25 words)</li>
+            <li><strong>Click "I Need Help"</strong> to see the analysis</li>
+            <li><strong>Check the console</strong> (F12) for debug logs</li>
+            <li><strong>Verify word count</strong> - Should show 25 words, not 9</li>
+        </ol>
+    </div>
+
+    <div class="debug-info">
+        <h3>🔍 Debug Information:</h3>
+        <p><strong>Expected:</strong> 25 words in 1 sentence</p>
+        <p><strong>If you see 9 words:</strong> The extension needs to be reloaded</p>
+        <p><strong>Console logs should show:</strong> Text length, word count, sentences, paragraphs</p>
+    </div>
+
+    <div class="test-text">
+        <strong>Test Text (25 words):</strong> The quick brown fox jumps over the lazy dog. This is a test sentence to verify that the word counting functionality works correctly and accurately counts all words in the selected text.
+    </div>
+
+    <div class="test-text">
+        <strong>Longer Test Text (50+ words):</strong> Mathematics is the study of numbers, shapes, and patterns that help us understand the world around us. It includes arithmetic, algebra, geometry, calculus, and statistics. Math helps us solve problems, make predictions, and understand complex relationships. From basic counting to advanced calculus, mathematics provides tools for understanding everything from simple daily tasks to complex scientific phenomena.
+    </div>
+
+    <div class="test-text">
+        <strong>Math Problem Test:</strong> Find the midpoint of the line segment with endpoints (−5,3) and (7,5). This should be detected as a math problem, not reading comprehension.
+    </div>
+
+    <div class="instructions">
+        <h3>🔧 If Word Count is Still Wrong:</h3>
+        <ol>
+            <li><strong>Reload the extension:</strong> Go to chrome://extensions/</li>
+            <li><strong>Click the reload button</strong> on the AI Tutor Assistant extension</li>
+            <li><strong>Refresh this page</strong> and try again</li>
+            <li><strong>Check console logs</strong> for debug information</li>
+        </ol>
+    </div>
+
+    <script>
+        // Test word counting function
+        function testWordCount(text) {
+            const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+            const wordCount = words.length;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+            
+            console.log('Manual word count test:', {
+                text: text.substring(0, 50) + '...',
+                length: text.length,
+                wordCount: wordCount,
+                sentences: sentences
+            });
+            
+            return { wordCount, sentences };
+        }
+
+        // Test with the sample text
+        const sampleText = "The quick brown fox jumps over the lazy dog. This is a test sentence to verify that the word counting functionality works correctly and accurately counts all words in the selected text.";
+        const result = testWordCount(sampleText);
+        
+        console.log('Expected: 25 words, 2 sentences');
+        console.log('Actual:', result.wordCount, 'words,', result.sentences, 'sentences');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Word count debug test loaded');
+        });
+    </script>
+</body>
+</html>

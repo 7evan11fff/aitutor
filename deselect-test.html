@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deselect Test - Highlight Cleanup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .instructions {
+            background: #e6f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007acc;
+        }
+        .test-text {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #e9ecef;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .keyboard-shortcuts {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+        .keyboard-shortcut {
+            background: #e2e3e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .test-steps {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧹 Deselect Test - Highlight Cleanup</h1>
+    
+    <div class="instructions">
+        <h3>🎯 Test Highlight Removal:</h3>
+        <p>This test verifies that the deselect function properly removes all visual highlights from the page.</p>
+    </div>
+
+    <div class="keyboard-shortcuts">
+        <h3>⌨️ Keyboard Shortcuts:</h3>
+        <ul>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+A</span> - Toggle image selection mode</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+D</span> - Deselect all (clear selections and highlights)</li>
+            <li><span class="keyboard-shortcut">Ctrl+Shift+M</span> - Toggle multi-select mode</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>📝 Test Steps:</h3>
+        <ol>
+            <li><strong>Select some text</strong> in the paragraphs below (drag to highlight)</li>
+            <li><strong>Click "I Need Help"</strong> to see the selection tooltip</li>
+            <li><strong>Select more text</strong> in different paragraphs</li>
+            <li><strong>Press Ctrl+Shift+D</strong> to deselect everything</li>
+            <li><strong>Check:</strong> All highlights should be completely removed!</li>
+        </ol>
+    </div>
+
+    <div class="test-text">
+        <h3>📖 Sample Text 1:</h3>
+        <p>This is a sample paragraph for testing text selection and highlighting. When you select this text, it should be highlighted with a blue background. The deselect function should completely remove all visual highlights from the page.</p>
+        
+        <p>You can select any part of this text - individual words, sentences, or entire paragraphs. The highlighting system should work consistently across different text elements.</p>
+    </div>
+
+    <div class="test-text">
+        <h3>📖 Sample Text 2:</h3>
+        <p>Here's another paragraph with different content. Try selecting text from multiple paragraphs to test the deselect function thoroughly. The system should handle multiple highlights and remove them all at once.</p>
+        
+        <p>Math problems like "2x + 5 = 13" should also be highlightable. The deselect function should work the same way for all types of content.</p>
+    </div>
+
+    <div class="test-text">
+        <h3>📖 Sample Text 3:</h3>
+        <p>This paragraph contains some <strong>bold text</strong> and <em>italic text</em> to test highlighting with different HTML elements. The deselect function should properly handle nested elements and complex text structures.</p>
+        
+        <p>Lists are also important to test:</p>
+        <ul>
+            <li>First item in the list</li>
+            <li>Second item with <strong>bold text</strong></li>
+            <li>Third item with <em>italic text</em></li>
+        </ul>
+    </div>
+
+    <div class="instructions">
+        <h3>🎯 What to Look For:</h3>
+        <ul>
+            <li><strong>✅ Highlights Appear:</strong> Selected text should get blue background</li>
+            <li><strong>✅ Multiple Highlights:</strong> Can select text in multiple places</li>
+            <li><strong>✅ Deselect Works:</strong> Ctrl+Shift+D removes ALL highlights</li>
+            <li><strong>✅ Clean Removal:</strong> No leftover blue backgrounds or spans</li>
+            <li><strong>✅ Text Unchanged:</strong> Original text structure is preserved</li>
+        </ul>
+    </div>
+
+    <div class="test-steps">
+        <h3>🔍 Advanced Testing:</h3>
+        <ol>
+            <li><strong>Test Complex Selection:</strong> Select text across multiple paragraphs</li>
+            <li><strong>Test Nested Elements:</strong> Select text that includes bold/italic elements</li>
+            <li><strong>Test Multiple Times:</strong> Select, deselect, select again</li>
+            <li><strong>Test Page Refresh:</strong> Refresh page and test again</li>
+            <li><strong>Test Different Sites:</strong> Try on other websites</li>
+        </ol>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Deselect test loaded');
+            
+            // Add visual feedback for selections
+            document.addEventListener('mouseup', function() {
+                const selection = window.getSelection();
+                const text = selection.toString().trim();
+                
+                if (text.length > 0) {
+                    console.log('Text selected:', text.substring(0, 50) + '...');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
