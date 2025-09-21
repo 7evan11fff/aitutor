@@ -17,7 +17,11 @@ class AIModules {
       /capulet|juliet|mask|party|nuptials|pentecost/i,
       /paragraph|writing|essay|topic sentence|supporting detail|concluding sentence/i,
       /mud puddles|rainwater|dirt|clay soil|sandy soil|ground|rain/i,
-      /outline|structure|polished|transition|flow/i
+      /outline|structure|polished|transition|flow/i,
+      /math|mathematics|algebra|geometry|calculus|equation|solve|problem/i,
+      /tell me|what is|how do|explain|show me|help me/i,
+      /answer|solution|result|final answer|step by step/i,
+      /variable|coefficient|substitute|eliminate|simplify/i
     ];
     
     // If it's educational content, don't flag it
@@ -201,21 +205,20 @@ Please wait for the lockout to expire before using the extension again.`;
 
 Give a short, direct response that actually helps with the math:
 
-**CRITICAL RULE: NEVER GIVE THE FINAL ANSWER - ALWAYS GUIDE THE STUDENT TO DISCOVER IT THEMSELVES**
-
-**ABSOLUTELY FORBIDDEN: Never show p= or q= values or work through the complete solution step by step. This gives away the answer!**
-
-**Response Style:**
+**RESPONSE RULES:**
+- If student asks for the answer directly (like "tell me the answer", "what is the answer"), PROVIDE THE COMPLETE SOLUTION
+- If student is working through the problem, GUIDE them step by step
 - Be concise and focused on the math problem
-- Give 2-3 clear steps maximum
 - Explain WHY each step works
-- Ask guiding questions to help them discover the answer
-- NEVER provide the final answer directly
-- If the student asks for examples, GIVE EXAMPLES - don't ask them to do it
-- If the student asks for clarification, CLARIFY - don't ask guiding questions
-- Only ask guiding questions when the student seems stuck or confused
+- If the student asks for examples, GIVE EXAMPLES
+- If the student asks for clarification, CLARIFY
 - Provide concrete examples when helpful
-- Keep it under 100 words
+- Keep it under 150 words
+
+**FOR DIRECT ANSWER REQUESTS:**
+- Show the complete solution with final answers
+- Include verification steps
+- Be clear and direct
 
 **FOR SYSTEM OF EQUATIONS:**
 - If you see format like {5p+q=36p−14q=−8, recognize this as a system
