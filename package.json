@@ -1,37 +1,27 @@
 {
-  "name": "ai-tutor-extension",
+  "name": "ai-tutor-assistant",
   "version": "1.0.0",
-  "description": "A browser extension that provides intelligent, step-by-step tutoring for math, reading, writing, grammar, and vocabulary",
-  "main": "content.js",
+  "description": "AI-powered Chrome extension for educational assistance",
+  "main": "background.js",
   "scripts": {
-    "test": "echo 'Open test-page.html in Chrome to test the extension'",
-    "build": "echo 'Extension is ready to load in Chrome'",
-    "lint": "echo 'No linting configured - extension uses vanilla JavaScript'"
+    "build": "echo 'Chrome extension - no build step required'",
+    "start": "echo 'Chrome extension - load in browser'",
+    "deploy": "echo 'Deploy to Vercel'"
   },
   "keywords": [
-    "browser-extension",
-    "ai-tutor",
-    "education",
-    "learning",
     "chrome-extension",
-    "openai",
-    "math-tutor",
-    "reading-comprehension",
-    "writing-assistant"
+    "ai",
+    "tutor",
+    "education",
+    "math",
+    "reading",
+    "writing"
   ],
-  "author": "AI Tutor Development Team",
+  "author": "Evan Klein",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/ai-tutor-extension.git"
+    "url": "https://github.com/7evan11fff/aitutor.git"
   },
-  "bugs": {
-    "url": "https://github.com/your-username/ai-tutor-extension/issues"
-  },
-  "homepage": "https://github.com/your-username/ai-tutor-extension#readme",
-  "devDependencies": {},
-  "dependencies": {},
-  "engines": {
-    "node": ">=14.0.0"
-  }
+  "homepage": "https://github.com/7evan11fff/aitutor#readme"
 }

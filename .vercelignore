@@ -1,0 +1,30 @@
+# Ignore development files
+.DS_Store
+node_modules/
+*.log
+*.tmp
+*.temp
+
+# Ignore test files
+*test*.html
+*test*.js
+debug-*.html
+test-*.html
+
+# Ignore backup files
+*-backup.js
+*-old.js
+*-working.js
+*-simple.js
+*-minimal.js
+*-fixed.js
+
+# Ignore documentation that's not needed for deployment
+TROUBLESHOOTING.md
+QUICK_FIX.md
+QUICK_FIX_V2.md
+setup.md
+ENHANCED_FEATURES.md
+
+# Ignore zip files
+*.zip
