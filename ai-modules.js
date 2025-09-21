@@ -64,45 +64,8 @@ class AIModules {
     
     // Security check removed
 
-    // Developer test mode - ONLY for math problems with test phrase
-    if (problem.includes('T0mBr^dy!!')) {
-      console.log('T0mBr^dy!! detected, checking if math problem');
-      
-      // Check if this looks like a math problem (more strict criteria)
-      const hasMathContent = problem.match(/[0-9]+\s*[+\-*/=]\s*[0-9]+/) || 
-                            problem.match(/\d+\.?\d*/) ||
-                            problem.includes('equation') ||
-                            problem.includes('solve') ||
-                            problem.includes('=') ||
-                            problem.match(/[a-zA-Z]\s*[+\-*/=]/);
-      
-      // Additional check: must have math symbols or be clearly mathematical
-      const hasMathSymbols = problem.match(/[+\-*/=]/) || 
-                            problem.match(/\d+/) ||
-                            problem.includes('x') || problem.includes('y') || 
-                            problem.includes('a') || problem.includes('b') ||
-                            problem.includes('p') || problem.includes('q');
-      
-      console.log('Math content check:', hasMathContent);
-      console.log('Math symbols check:', hasMathSymbols);
-      console.log('Problem contains 2a:', problem.includes('2a'));
-      console.log('Problem contains 73b:', problem.includes('73b'));
-      console.log('Problem contains =3:', problem.includes('=3'));
-      console.log('Problem contains -3a:', problem.includes('-3a'));
-      console.log('Problem contains 7b:', problem.includes('7b'));
-      console.log('Problem contains =6:', problem.includes('=6'));
-      
-      // Only activate for math problems, not reading/writing/other subjects
-      if (hasMathContent && hasMathSymbols && !problem.includes('theme') && 
-          !problem.includes('passage') && !problem.includes('reading') &&
-          !problem.includes('comprehension') && !problem.includes('question') &&
-          !problem.includes('answer') && !problem.includes('multiple choice')) {
-        console.log('Activating developer test mode');
-        return this.handleDeveloperTest(problem);
-      } else {
-        console.log('T0mBr^dy!! detected but not a math problem, using normal mode');
-      }
-    }
+    // Developer test mode completely disabled - no direct answers allowed
+    // All requests now use normal guidance mode only
 
     // NO LOCKOUT - AI should always respond with guidance, never direct answers
 
@@ -448,12 +411,10 @@ Remember: Be direct, helpful, and concise. Focus on guiding them to discover the
     return await this.callAI(prompt);
   }
 
-  // Developer test function - shows actual solution
+  // Developer test function removed - no direct answers allowed
   handleDeveloperTest(problem) {
-    console.log('🔧 DEVELOPER TEST MODE ACTIVATED');
-    console.log('Problem text:', problem);
-    console.log('Problem type:', typeof problem);
-    console.log('Problem length:', problem.length);
+    console.log('🔧 DEVELOPER TEST MODE REMOVED - NO DIRECT ANSWERS ALLOWED');
+    return "Developer test mode has been disabled. The AI will only provide guidance, never direct answers. Please ask for help with your problem and I'll guide you through solving it step by step.";
     
     // Clean up the problem text - remove conversation history and context
     let cleanProblem = problem;
