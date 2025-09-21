@@ -720,8 +720,17 @@ async function handleEnhancedMessage(message) {
   }
   
   // Handle special commands
-  if (message.toLowerCase() === 'update api key') {
-    const newKey = prompt('Enter new API key:');
+  if (message.toLowerCase().startsWith('update api key')) {
+    let newKey;
+    
+    // Check if the key is provided in the message
+    if (message.toLowerCase() === 'update api key') {
+      newKey = prompt('Enter new API key:');
+    } else {
+      // Extract the key from the message
+      newKey = message.substring('update api key '.length).trim();
+    }
+    
     if (newKey) {
       localStorage.setItem('claude_api_key', newKey);
       // Reinitialize AI modules with new key
@@ -729,6 +738,18 @@ async function handleEnhancedMessage(message) {
         aiModules = new AIModules(newKey);
       }
       addMessageToWidget('ai', '✅ API key updated successfully!');
+    } else {
+      addMessageToWidget('ai', '❌ No API key provided. Please try again.');
+    }
+    return;
+  }
+  
+  if (message.toLowerCase() === 'check quota') {
+    const currentKey = localStorage.getItem('claude_api_key');
+    if (currentKey) {
+      addMessageToWidget('ai', `🔑 **API Key Status**\n\n**Current Key:** ${currentKey.substring(0, 20)}...\n**Key Length:** ${currentKey.length} characters\n**Key Format:** ${currentKey.startsWith('sk-ant-') ? '✅ Valid Anthropic format' : '❌ Invalid format'}\n\n**Next Steps:**\n- If the key looks correct, try asking a question\n- If you get errors, try updating the key with: \`update api key YOUR_NEW_KEY\``);
+    } else {
+      addMessageToWidget('ai', '❌ **No API Key Set**\n\nPlease set your API key using:\n\`update api key YOUR_CLAUDE_API_KEY_HERE\`\n\nGet your key from: https://console.anthropic.com/');
     }
     return;
   }
