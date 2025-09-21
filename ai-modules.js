@@ -931,26 +931,41 @@ Generate a similar problem that teaches the same concept.`;
       }
       
       // Send request to background script to avoid CORS issues
-      const response = await new Promise((resolve, reject) => {
-        chrome.runtime.sendMessage({
-          action: 'callClaudeAPI',
-          apiKey: cleanApiKey,
-          messages: [{
-            role: 'user',
-            content: prompt
-          }],
-          maxTokens: 4000,
-          temperature: 0.7
-        }, (response) => {
-          if (chrome.runtime.lastError) {
-            reject(new Error(chrome.runtime.lastError.message));
-          } else if (response && response.success) {
-            resolve(response.response);
-          } else {
-            reject(new Error(response ? response.error : 'Unknown error'));
-          }
-        });
-      });
+      const response = await Promise.race([
+        new Promise((resolve, reject) => {
+          console.log('Sending message to background script with API key:', cleanApiKey.substring(0, 20) + '...');
+          chrome.runtime.sendMessage({
+            action: 'callClaudeAPI',
+            apiKey: cleanApiKey,
+            messages: [{
+              role: 'user',
+              content: prompt
+            }],
+            maxTokens: 4000,
+            temperature: 0.7
+          }, (response) => {
+            console.log('Received response from background script:', response);
+            if (chrome.runtime.lastError) {
+              console.error('Chrome runtime error:', chrome.runtime.lastError);
+              reject(new Error(chrome.runtime.lastError.message));
+            } else if (response && response.success) {
+              console.log('API call successful, response length:', response.response ? response.response.length : 'undefined');
+              resolve(response.response);
+            } else if (response && response.error) {
+              console.error('API call failed with error:', response.error);
+              reject(new Error(response.error));
+            } else {
+              console.error('API call failed with no response or unknown error:', response);
+              reject(new Error('No response from background script. This might be due to extension context issues.'));
+            }
+          });
+        }),
+        new Promise((_, reject) => {
+          setTimeout(() => {
+            reject(new Error('API call timeout after 30 seconds. Please check your internet connection and try again.'));
+          }, 30000);
+        })
+      ]);
 
       console.log('Claude API response received via background script');
       return response;
