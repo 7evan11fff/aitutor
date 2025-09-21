@@ -190,8 +190,23 @@ function initializeAIModules() {
   }
   console.log('🔍 DEBUG: About to create AIModules instance');
   console.log('🔍 DEBUG: AIModules class exists:', typeof window.AIModules);
-  aiModules = new window.AIModules(apiKey);
-  console.log('🔍 DEBUG: AIModules instance created successfully');
+  
+  // Wait for AIModules to be available
+  if (typeof window.AIModules === 'undefined') {
+    console.log('🔍 DEBUG: AIModules not available yet, waiting...');
+    // Wait a bit and try again
+    setTimeout(() => {
+      if (typeof window.AIModules !== 'undefined') {
+        aiModules = new window.AIModules(apiKey);
+        console.log('🔍 DEBUG: AIModules instance created successfully after wait');
+      } else {
+        console.error('🔍 DEBUG: AIModules still not available after wait');
+      }
+    }, 100);
+  } else {
+    aiModules = new window.AIModules(apiKey);
+    console.log('🔍 DEBUG: AIModules instance created successfully');
+  }
 }
 
 // Test AI response function
