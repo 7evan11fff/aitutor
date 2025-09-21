@@ -75,6 +75,10 @@ const sitePatterns = {
     'grammarly.com', 'hemingwayapp.com', 'prowritingaid.com', 'scribbr.com',
     'owl.purdue.edu', 'writingcenter.unc.edu', 'grammar.com', 'englishgrammar.org'
   ],
+  vocabulary: [
+    'dictionary.com', 'merriam-webster.com', 'thesaurus.com', 'vocabulary.com',
+    'wordnik.com', 'oxforddictionaries.com', 'cambridge.org', 'macmillandictionary.com'
+  ],
   general: [
     'wikipedia.org', 'britannica.com', 'encyclopedia.com', 'britannica.com',
     'study.com', 'sparknotes.com', 'cliffsnotes.com', 'shmoop.com'
@@ -112,16 +116,24 @@ function detectSiteContext() {
     return 'writing';
   }
   
+  // Check for vocabulary patterns
+  if (sitePatterns.vocabulary.some(site => hostname.includes(site))) {
+    console.log('Detected as vocabulary site');
+    return 'vocabulary';
+  }
+  
   // Enhanced content detection with scoring
   const mathKeywords = ['solve', 'equation', 'formula', 'calculate', 'algebra', 'geometry', 'trigonometry', 'calculus', 'problem', 'math', 'mathematics', 'number', 'variable', 'function', 'graph', 'coordinate', 'binomial', 'midpoint', 'exponent'];
   const readingKeywords = ['passage', 'comprehension', 'article', 'story', 'chapter', 'read', 'reading', 'text', 'literature', 'book', 'novel', 'poem', 'essay'];
   const writingKeywords = ['essay', 'paragraph', 'composition', 'draft', 'outline', 'write', 'writing', 'grammar', 'spelling', 'sentence', 'structure', 'thesis', 'subject', 'verb', 'predicate', 'noun', 'pronoun', 'adjective', 'adverb'];
+  const vocabularyKeywords = ['vocabulary', 'word', 'definition', 'meaning', 'synonym', 'antonym', 'thesaurus', 'dictionary', 'term', 'phrase', 'idiom', 'expression'];
   
   const mathScore = mathKeywords.filter(keyword => bodyText.includes(keyword)).length;
   const readingScore = readingKeywords.filter(keyword => bodyText.includes(keyword)).length;
   const writingScore = writingKeywords.filter(keyword => bodyText.includes(keyword)).length;
+  const vocabularyScore = vocabularyKeywords.filter(keyword => bodyText.includes(keyword)).length;
   
-  console.log('Content scores - Math:', mathScore, 'Reading:', readingScore, 'Writing:', writingScore);
+  console.log('Content scores - Math:', mathScore, 'Reading:', readingScore, 'Writing:', writingScore, 'Vocabulary:', vocabularyScore);
   
   // Check for math expressions and symbols
   const mathExpressions = bodyText.match(/[0-9]+\s*[+\-*/=]\s*[0-9]+/g) || [];
@@ -148,6 +160,11 @@ function detectSiteContext() {
   if (readingScore > 2) {
     console.log('Detected as reading content');
     return 'reading';
+  }
+  
+  if (vocabularyScore > 1) {
+    console.log('Detected as vocabulary content');
+    return 'vocabulary';
   }
   
   // Check for common educational patterns
@@ -222,6 +239,9 @@ async function getAIResponse(prompt, context = '') {
     } else if (siteContext === 'reading') {
       console.log('Using reading handler');
       response = await aiModules.handleReadingRequest(fullContext, { selectedText: context });
+    } else if (siteContext === 'vocabulary') {
+      console.log('Using vocabulary handler');
+      response = await aiModules.handleVocabularyRequest(fullContext, { selectedText: context });
     } else {
       console.log('Using general handler');
       response = await aiModules.handleGeneralRequest(fullContext, { selectedText: context });
