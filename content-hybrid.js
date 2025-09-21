@@ -167,7 +167,7 @@ let aiModules = null;
 
 function initializeAIModules() {
   console.log('🔍 DEBUG: Inside initializeAIModules function');
-  const apiKey = localStorage.getItem('claude_api_key') || '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';
+  const apiKey = localStorage.getItem('claude_api_key') || null;
   if (!localStorage.getItem('claude_api_key')) {
     localStorage.setItem('claude_api_key', apiKey);
   }
@@ -734,7 +734,7 @@ async function handleEnhancedMessage(message) {
   }
   
   if (message.toLowerCase() === 'set api key AIzaSyACWghg-C70p2-NIgrv4ZSX82xD5ywP04Y') {
-    localStorage.setItem('claude_api_key', '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');
+    // No default API key - user must provide their own
     // Reinitialize AI modules with new key
     if (typeof AIModules !== 'undefined') {
       aiModules = new AIModules('jtrjrenyeu65i84yeYEy-MU&JSRNYryrhdhru-786i543brweENEW775uEnytrjrhHT53etg ehtrutN864mnenteruIMUn4ny3nyt3etnewr');
@@ -744,7 +744,7 @@ async function handleEnhancedMessage(message) {
   }
   
   if (message.toLowerCase() === 'set api key AIzaSyAGaUBwEaYQ5cSPATOKGpD9ulnE82Jx_bY') {
-    localStorage.setItem('claude_api_key', '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');
+    // No default API key - user must provide their own
     // Reinitialize AI modules with new key
     if (typeof AIModules !== 'undefined') {
       aiModules = new AIModules('jtrjrenyeu65i84yeYEy-MU&JSRNYryrhdhru-786i543brweENEW775uEnytrjrhHT53etg ehtrutN864mnenteruIMUn4ny3nyt3etnewr');

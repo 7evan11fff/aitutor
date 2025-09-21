@@ -991,7 +991,7 @@ Generate a similar problem that teaches the same concept.`;
   // Core AI API call method using Claude via background script
   async callAI(prompt) {
     if (!this.apiKey) {
-      throw new Error('API key not set');
+      throw new Error('API key not set. Please get a valid Claude API key from https://console.anthropic.com/ and type "update api key YOUR_KEY_HERE" to set it.');
     }
 
     try {
