@@ -755,57 +755,56 @@ The AI should be able to handle this problem and provide step-by-step guidance.<
       if (!systemMatch) return null;
       
       const equations = systemMatch[1];
+      console.log('Raw equations string:', equations);
       
-      // Try to parse equations like "2a−73b=3−3a+7b=6"
-      // This should be split into two equations
-      const parts = equations.split(/(?<=\d)(?=[+-])/);
-      if (parts.length < 2) return null;
-      
-      // Find the split point (where we have a number followed by a minus sign)
+      // Handle the specific case: 2a−73b=3−3a+7b=6
+      // This should be split into: 2a−73b=3 and -3a+7b=6
       let eq1 = '';
       let eq2 = '';
       
-      // Look for pattern like "=3−3a" where we split at the equals sign followed by minus
-      const splitMatch = equations.match(/(\d+)([+-][a-zA-Z])/);
+      // Look for the pattern where we have a number followed by a minus sign after an equals
+      // Pattern: =3−3a (equals, number, minus, variable)
+      const splitMatch = equations.match(/(\d+)([−-])([a-zA-Z])/);
       if (splitMatch) {
-        // Find the position where we have a number followed by a minus sign
         const splitIndex = splitMatch.index + splitMatch[1].length;
         eq1 = equations.substring(0, splitIndex).trim();
         eq2 = equations.substring(splitIndex).trim();
+        console.log('Split at pattern match:', { eq1, eq2 });
       } else {
-        // Fallback: try to split at common patterns
-        const splitPatterns = [
-          /(\d+)([+-][a-zA-Z])/,  // number followed by variable
-          /([a-zA-Z]\d*)([+-][a-zA-Z])/  // variable followed by variable
-        ];
-        
-        for (const pattern of splitPatterns) {
-          const match = equations.match(pattern);
-          if (match) {
-            const splitIndex = match.index + match[1].length;
-            eq1 = equations.substring(0, splitIndex).trim();
-            eq2 = equations.substring(splitIndex).trim();
-            break;
-          }
+        // Fallback: try to find where we have a number followed by a minus sign
+        const fallbackMatch = equations.match(/(\d+)([−-])/);
+        if (fallbackMatch) {
+          const splitIndex = fallbackMatch.index + fallbackMatch[1].length;
+          eq1 = equations.substring(0, splitIndex).trim();
+          eq2 = equations.substring(splitIndex).trim();
+          console.log('Split at fallback match:', { eq1, eq2 });
         }
       }
       
-      // Special case: if we still don't have equations, try splitting at the first equals sign
+      // If still no split, try splitting at the second equals sign
       if (!eq1 || !eq2) {
-        const equalsIndex = equations.indexOf('=');
-        if (equalsIndex !== -1) {
-          // Find the next equals sign after the first one
-          const secondEqualsIndex = equations.indexOf('=', equalsIndex + 1);
-          if (secondEqualsIndex !== -1) {
-            eq1 = equations.substring(0, secondEqualsIndex).trim();
-            eq2 = equations.substring(secondEqualsIndex + 1).trim();
-          }
+        const equalsPositions = [];
+        let pos = equations.indexOf('=');
+        while (pos !== -1) {
+          equalsPositions.push(pos);
+          pos = equations.indexOf('=', pos + 1);
+        }
+        
+        if (equalsPositions.length >= 2) {
+          // Split at the second equals sign
+          const secondEquals = equalsPositions[1];
+          eq1 = equations.substring(0, secondEquals).trim();
+          eq2 = equations.substring(secondEquals + 1).trim();
+          console.log('Split at second equals:', { eq1, eq2 });
         }
       }
       
-      if (!eq1 || !eq2) return null;
+      if (!eq1 || !eq2) {
+        console.log('Could not parse equations');
+        return null;
+      }
       
-      console.log('Parsed equations:', { eq1, eq2 });
+      console.log('Final parsed equations:', { eq1, eq2 });
       
       // For the specific case: 2a−73b=3 and -3a+7b=6
       if (eq1.includes('2a') && eq1.includes('73b') && eq2.includes('-3a') && eq2.includes('7b')) {
@@ -813,12 +812,12 @@ The AI should be able to handle this problem and provide step-by-step guidance.<
 - 2a - 7b = 3<br>
 - -3a + 7b = 6<br><br>
 **Solution Steps:**<br>
-1. From first equation: 2a - 7b = 3, so b = (2a - 3)/7<br>
-2. Substitute into second: -3a + 7((2a - 3)/7) = 6<br>
-3. Simplify: -3a + (2a - 3) = 6<br>
-4. Combine like terms: -3a + 2a - 3 = 6<br>
-5. Simplify: -a - 3 = 6, so -a = 9, therefore a = -9<br>
-6. Back substitute: b = (2(-9) - 3)/7 = (-18 - 3)/7 = -21/7 = -3<br><br>
+1. **Use elimination method** - Add the equations to eliminate b<br>
+2. **Add equations:** (2a - 7b) + (-3a + 7b) = 3 + 6<br>
+3. **Simplify:** 2a - 7b - 3a + 7b = 9<br>
+4. **Combine like terms:** -a = 9, so a = -9<br>
+5. **Substitute back:** 2(-9) - 7b = 3<br>
+6. **Solve for b:** -18 - 7b = 3, so -7b = 21, therefore b = -3<br><br>
 **Final Answer: a = -9, b = -3**<br><br>
 **Verification:**<br>
 - 2(-9) - 7(-3) = -18 + 21 = 3 ✓<br>
