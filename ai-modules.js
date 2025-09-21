@@ -2,54 +2,11 @@
 class AIModules {
   constructor(apiKey) {
     this.apiKey = apiKey;
-    this.lockoutUntil = null;
-    this.abuseAttempts = 0;
-    this.testMode = false; // Test mode flag
   }
 
-  // Security check for inappropriate requests
-  checkForAbuse(message) {
-    // Don't flag educational content about literature, history, or academic topics
-    const educationalContext = [
-      /shakespeare|romeo and juliet|literature|poetry|drama/i,
-      /history|historical|academic|educational|learning/i,
-      /analysis|criticism|interpretation|discussion/i,
-      /capulet|juliet|mask|party|nuptials|pentecost/i,
-      /paragraph|writing|essay|topic sentence|supporting detail|concluding sentence/i,
-      /mud puddles|rainwater|dirt|clay soil|sandy soil|ground|rain/i,
-      /outline|structure|polished|transition|flow/i,
-      /math|mathematics|algebra|geometry|calculus|equation|solve|problem/i,
-      /how do|explain|show me|help me/i,
-      /step by step|guide me|walk me through/i,
-      /variable|coefficient|substitute|eliminate|simplify/i
-    ];
-    
-    // If it's educational content, don't flag it
-    if (educationalContext.some(pattern => pattern.test(message))) {
-      return false;
-    }
-    
-    const abusePatterns = [
-      /kill.*myself|suicide|self.*harm/i,
-      /jailbreak|bypass|hack|exploit/i,
-      /ignore.*instructions|forget.*rules/i,
-      /act.*as.*if|pretend.*to.*be/i,
-      /you.*are.*now|from.*now.*on/i,
-      /override|disable.*safety/i,
-      /dangerous|harmful|illegal/i,
-      /threat|threaten|blackmail/i,
-      /if.*you.*don.*t.*tell/i,
-      /i.*will.*hurt.*myself/i
-    ];
+  // Security check removed - no lockout functionality
 
-    return abusePatterns.some(pattern => pattern.test(message));
-  }
-
-  // Toggle test mode
-  toggleTestMode() {
-    this.testMode = !this.testMode;
-    return this.testMode ? "Test mode ON - Security violations will be shown but no lockout" : "Test mode OFF - Normal security behavior";
-  }
+  // Test mode removed - no security functionality
 
   // Check API quota status
   async checkQuotaStatus() {
@@ -96,61 +53,16 @@ class AIModules {
     }
   }
 
-  // Handle security lockout
-  handleSecurityViolation() {
-    if (this.testMode) {
-      return `🧪 **TEST MODE - SECURITY VIOLATION DETECTED** 🧪
+  // Security violation handler removed
 
-Your request has been flagged as inappropriate or potentially harmful. The AI Tutor Assistant is designed for educational purposes only.
-
-**Test Mode:** ON (No actual lockout)
-**Reason:** Inappropriate request detected
-**Would normally lock for:** 5 minutes
-
-Please use this tool responsibly for learning and education. If you have a legitimate educational question, please rephrase it appropriately.
-
-In normal mode, the extension would be locked for 5 minutes.`;
-    } else {
-      this.lockoutUntil = Date.now() + (5 * 60 * 1000); // 5 minutes
-      this.abuseAttempts++;
-      
-      return `🚫 **SECURITY VIOLATION DETECTED** 🚫
-
-Your request has been flagged as inappropriate or potentially harmful. The AI Tutor Assistant is designed for educational purposes only.
-
-**Lockout Duration:** 5 minutes
-**Reason:** Inappropriate request detected
-
-Please use this tool responsibly for learning and education. If you have a legitimate educational question, please rephrase it appropriately.
-
-The extension will be available again in 5 minutes.`;
-    }
-  }
-
-  // Check if currently locked out
-  isLockedOut() {
-    if (this.lockoutUntil && Date.now() < this.lockoutUntil) {
-      const remainingMinutes = Math.ceil((this.lockoutUntil - Date.now()) / (60 * 1000));
-      return `🚫 **EXTENSION LOCKED** 🚫
-
-The AI Tutor Assistant is currently locked due to a security violation.
-
-**Time Remaining:** ${remainingMinutes} minutes
-
-Please wait for the lockout to expire before using the extension again.`;
-    }
-    return null;
-  }
+  // Lockout check removed
 
   // Math Support Module
   async handleMathRequest(problem, context = {}) {
     console.log('Handling math request:', problem);
     console.log('Context received:', context);
     
-    // Security check
-    if (this.checkForAbuse(problem)) {
-      return this.handleSecurityViolation();
-    }
+    // Security check removed
 
     // Developer test mode - ONLY for math problems with test phrase
     if (problem.includes('T0mBr^dy!!')) {
@@ -267,9 +179,7 @@ Remember: Be direct, helpful, and concise. Always explain WHY, not just HOW.`;
   async handleReadingRequest(selectedText, question, context = {}) {
     // Security check
     const fullText = selectedText + (question || '');
-    if (this.checkForAbuse(fullText)) {
-      return this.handleSecurityViolation();
-    }
+    // Security check removed
 
     // NO LOCKOUT - AI should always respond with guidance, never direct answers
 
@@ -315,9 +225,7 @@ Remember: Be direct, helpful, and concise. Always explain WHY the answer makes s
   // Writing Support Module
   async handleWritingRequest(text, context = {}) {
     // Security check
-    if (this.checkForAbuse(text)) {
-      return this.handleSecurityViolation();
-    }
+    // Security check removed
 
     // NO LOCKOUT - AI should always respond with guidance, never direct answers
 
@@ -358,9 +266,7 @@ Remember: Be direct, helpful, and concise. Focus on the writing, not emotions.`;
   // Grammar Support Module
   async handleGrammarRequest(text, context = {}) {
     // Security check
-    if (this.checkForAbuse(text)) {
-      return this.handleSecurityViolation();
-    }
+    // Security check removed
 
     // NO LOCKOUT - AI should always respond with guidance, never direct answers
 
@@ -510,9 +416,7 @@ Remember: Be direct, helpful, and concise. Focus on the word, not emotions.`;
   // General Learning Support
   async handleGeneralRequest(message, context = {}) {
   // Security check
-  if (this.checkForAbuse(message)) {
-    return this.handleSecurityViolation();
-  }
+  // Security check removed
 
   // NO LOCKOUT - AI should always respond with guidance, never direct answers
 
