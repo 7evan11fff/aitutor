@@ -19,8 +19,8 @@ class AIModules {
       /mud puddles|rainwater|dirt|clay soil|sandy soil|ground|rain/i,
       /outline|structure|polished|transition|flow/i,
       /math|mathematics|algebra|geometry|calculus|equation|solve|problem/i,
-      /tell me|what is|how do|explain|show me|help me/i,
-      /answer|solution|result|final answer|step by step/i,
+      /how do|explain|show me|help me/i,
+      /step by step|guide me|walk me through/i,
       /variable|coefficient|substitute|eliminate|simplify/i
     ];
     
@@ -205,20 +205,21 @@ Please wait for the lockout to expire before using the extension again.`;
 
 Give a short, direct response that actually helps with the math:
 
-**RESPONSE RULES:**
-- If student asks for the answer directly (like "tell me the answer", "what is the answer"), PROVIDE THE COMPLETE SOLUTION
-- If student is working through the problem, GUIDE them step by step
-- Be concise and focused on the math problem
-- Explain WHY each step works
-- If the student asks for examples, GIVE EXAMPLES
-- If the student asks for clarification, CLARIFY
-- Provide concrete examples when helpful
-- Keep it under 150 words
+**CRITICAL RULE: NEVER GIVE THE FINAL ANSWER - ALWAYS GUIDE THE STUDENT TO DISCOVER IT THEMSELVES**
 
-**FOR DIRECT ANSWER REQUESTS:**
-- Show the complete solution with final answers
-- Include verification steps
-- Be clear and direct
+**ABSOLUTELY FORBIDDEN: Never show final answers, complete solutions, or work through the entire problem step by step with answers. This gives away the answer!**
+
+**Response Style:**
+- Be concise and focused on the math problem
+- Give 2-3 clear steps maximum
+- Explain WHY each step works
+- Ask guiding questions to help them discover the answer
+- NEVER provide the final answer directly, no matter how they ask
+- If the student asks for examples, GIVE EXAMPLES - don't ask them to do it
+- If the student asks for clarification, CLARIFY - don't ask guiding questions
+- Only ask guiding questions when the student seems stuck or confused
+- Provide concrete examples when helpful
+- Keep it under 100 words
 
 **FOR SYSTEM OF EQUATIONS:**
 - If you see format like {5p+q=36p−14q=−8, recognize this as a system
@@ -227,6 +228,11 @@ Give a short, direct response that actually helps with the math:
 - Don't give the final answer - guide them to discover it
 - NEVER show the complete solution with p= and q= values
 - NEVER work through the entire problem step by step with answers
+
+**WHEN STUDENT ASKS FOR ANSWERS:**
+- If they say "tell me the answer", "what is the answer", "give me the answer"
+- Respond with: "I can't give you the answer directly, but I can guide you through solving it step by step. Let's work through this together!"
+- Then provide guidance questions to help them discover the answer
 
 **Examples of good responses:**
 - "Let's go step by step. First, write down the midpoint formula: (x,y) = ((x₁+x₂)/2, (y₁+y₂)/2). This works because the midpoint is the average of the two endpoints. Now substitute your x-values: -5a and 7a. What do you get when you add them?"
