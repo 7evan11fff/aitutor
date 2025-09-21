@@ -4,9 +4,11 @@
   "description": "AI-powered Chrome extension for educational assistance",
   "main": "background.js",
   "scripts": {
-    "build": "echo 'Chrome extension - no build step required'",
+    "build": "./build-extension.sh",
+    "package": "./build-extension.sh",
     "start": "echo 'Chrome extension - load in browser'",
-    "deploy": "echo 'Deploy to Vercel'"
+    "deploy": "echo 'Deploy to Vercel'",
+    "pre-commit": "npm run build && git add ai-tutor-extension.zip"
   },
   "keywords": [
     "chrome-extension",
