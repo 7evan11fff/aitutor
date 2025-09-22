@@ -300,57 +300,28 @@ console.log('🔍 DEBUG: About to define getFallbackResponse function');
 function getFallbackResponse(prompt, context) {
   const lowerPrompt = prompt.toLowerCase();
   
-  // Check if we have selected text that looks like math
+  // Check if this is a piecewise function problem
+  if (context && (context.includes('piecewise') || context.includes('f(x)=') && context.includes('{'))) {
+    return "I'd love to help you with this piecewise function! Let's work through it step by step. First, can you identify which condition applies to your input value? Look at the inequalities and see which range your input falls into.";
+  }
+  
+  // Check if this is a math problem
   if (context && context.includes('Selected text:') && context.includes('=')) {
     const selectedText = context.replace('Selected text: "', '').replace('"', '');
     
-    // Check for binomial expansion pattern
-    if (selectedText.match(/\([a-zA-Z]\d*\+[a-zA-Z]\d*\)\d*[=]/)) {
-      return `**Binomial Expansion Problem** 🧮
-
-**Problem:** ${selectedText}
-
-**Step 1:** Recall the Binomial Formula
-(a + b)² = a² + 2ab + b²
-
-**Step 2:** Identify the terms
-Looking at your expression, identify what 'a' and 'b' are in the parentheses.
-
-**Step 3:** Apply the formula
-Substitute your terms into the formula: (a + b)² = a² + 2ab + b²
-
-**Step 4:** Simplify each term
-- (a)² = ?
-- 2(a)(b) = ?
-- (b)² = ?
-
-**Step 5:** Combine the terms
-Add all three terms together to get your final answer.
-
-**Need help with a specific step?** Let me know which part you'd like me to explain further!`;
+    // Check for piecewise function pattern
+    if (selectedText.includes('f(x)=') && selectedText.includes('{')) {
+      return "I'd love to help you with this piecewise function! Let's work through it step by step. First, can you identify which condition applies to your input value? Look at the inequalities and see which range your input falls into.";
     }
     
-    // Generic math problem fallback - only for basic math, not functions
-    if (selectedText.match(/[=+\-*/]/) && !selectedText.includes('function') && !selectedText.includes('f(') && !selectedText.includes('{')) {
-      return `**Math Problem** 🔢
-
-**Problem:** ${selectedText}
-
-**Step 1:** Identify what you're solving for
-Look at what the problem is asking you to find.
-
-**Step 2:** Identify the given information
-What numbers, variables, or values are provided?
-
-**Step 3:** Choose the right method
-- Algebra: Solve for variables
-- Arithmetic: Perform calculations
-- Geometry: Use formulas
-
-**Step 4:** Work step by step
-Show your work clearly for each step.
-
-**What specific part would you like help with?**`;
+    // Check for binomial expansion pattern
+    if (selectedText.match(/\([a-zA-Z]\d*\+[a-zA-Z]\d*\)\d*[=]/)) {
+      return "I'd love to help you with this binomial expansion! Let's work through it step by step. First, can you identify what 'a' and 'b' are in your expression?";
+    }
+    
+    // Generic math problem fallback
+    if (selectedText.match(/[=+\-*/]/)) {
+      return "I'd love to help you with this math problem! Let's work through it step by step. What specific part are you having trouble with?";
     }
   }
   

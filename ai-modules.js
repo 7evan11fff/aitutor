@@ -78,6 +78,15 @@ class AIModules {
       mathProblem = await this.extractMathFromHTML(mathProblem, context);
     }
     
+    // Check if this is a piecewise function problem
+    const isPiecewiseFunction = mathProblem.includes('piecewise') || 
+                               mathProblem.includes('f(x)=') && mathProblem.includes('{') ||
+                               mathProblem.includes('≤') || mathProblem.includes('≥');
+    
+    if (isPiecewiseFunction) {
+      console.log('Detected piecewise function problem');
+    }
+    
     // Build context from chat history
     // Don't pass chat history to keep responses fresh
     let contextInfo = `Student is working on: "${mathProblem}"`;
@@ -85,6 +94,8 @@ class AIModules {
     const prompt = `You are a helpful math tutor. The student's question is: "${mathProblem}"
 
 **ABSOLUTE RULE: NEVER GIVE THE FINAL ANSWER - ONLY PROVIDE GUIDANCE**
+
+**CRITICAL: This is a piecewise function problem. You must guide the student to identify which condition applies to their input value. Do NOT solve it for them.**
 
 **STRICTLY FORBIDDEN:**
 - Never show final answers, complete solutions, or work through the entire problem
@@ -117,6 +128,13 @@ class AIModules {
 
 **Example for piecewise functions:**
 "To evaluate a piecewise function, first identify which condition applies to your input value. Look at the inequalities: x ≤ -3, -3 < x ≤ 0, x > 0. Which condition does your input value satisfy? Then use the corresponding formula. For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So use the middle formula."
+
+**SPECIFIC PIECEWISE FUNCTION GUIDANCE:**
+- NEVER solve the problem for the student
+- ALWAYS guide them to identify which condition applies
+- Ask them to check each inequality systematically
+- Help them understand which range their input falls into
+- Guide them to use the correct formula, but don't calculate the result
 
 **If student asks for the answer:**
 "I can't give you the answer directly, but I can guide you through the process. Let's work through this step by step together!"
