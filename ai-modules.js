@@ -97,6 +97,11 @@ class AIModules {
 
 **CRITICAL: This is a piecewise function problem. You must guide the student to identify which condition applies to their input value. Do NOT solve it for them.**
 
+**MATHEMATICAL ACCURACY REQUIRED:**
+- NEVER say "-1 is less than or equal to -3" (this is FALSE)
+- ALWAYS check inequalities correctly: -1 is NOT ≤ -3
+- For f(-1): Check "Is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes!"
+
 **STRICTLY FORBIDDEN:**
 - Never show final answers, complete solutions, or work through the entire problem
 - Never provide numerical answers or algebraic solutions
@@ -129,6 +134,9 @@ class AIModules {
 **Example for piecewise functions:**
 "To evaluate a piecewise function, first identify which condition applies to your input value. Look at the intervals: x ≤ -3, -3 < x ≤ 0, x > 0. Which interval does your input value fall into? For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So use the middle formula (x²)."
 
+**CORRECT GUIDANCE FORMAT:**
+"Look at the three intervals: x ≤ -3, -3 < x ≤ 0, and x > 0. Which interval does -1 fall into? Check: Is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So you would use the middle formula (x²)."
+
 **SPECIFIC PIECEWISE FUNCTION GUIDANCE:**
 - NEVER solve the problem for the student
 - ALWAYS guide them to identify which interval their input falls into
@@ -137,6 +145,10 @@ class AIModules {
 - Guide them to use the correct formula, but don't calculate the result
 - CRITICAL: Make sure inequalities are checked correctly (e.g., -1 is NOT ≤ -3)
 - Guide them through: "Is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So use the middle formula."
+
+**COMMON MISTAKE TO AVOID:**
+- NEVER say "Since -1 is less than or equal to -3" - this is mathematically WRONG
+- ALWAYS say "Is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes!"
 
 **If student asks for the answer:**
 "I can't give you the answer directly, but I can guide you through the process. Let's work through this step by step together!"
