@@ -302,7 +302,7 @@ function getFallbackResponse(prompt, context) {
   
   // Check if this is a piecewise function problem
   if (context && (context.includes('piecewise') || context.includes('f(x)=') && context.includes('{'))) {
-    return "I'd love to help you with this piecewise function! Let's work through it step by step. First, can you identify which condition applies to your input value? Look at the inequalities and see which range your input falls into.";
+    return "I'd love to help you with this piecewise function! Let's work through it step by step. First, identify which interval your input value falls into. Look at the three intervals: x ≤ -3, -3 < x ≤ 0, and x > 0. Which interval does your input value belong to?";
   }
   
   // Check if this is a math problem
@@ -311,7 +311,7 @@ function getFallbackResponse(prompt, context) {
     
     // Check for piecewise function pattern
     if (selectedText.includes('f(x)=') && selectedText.includes('{')) {
-      return "I'd love to help you with this piecewise function! Let's work through it step by step. First, can you identify which condition applies to your input value? Look at the inequalities and see which range your input falls into.";
+      return "I'd love to help you with this piecewise function! Let's work through it step by step. First, identify which interval your input value falls into. Look at the three intervals: x ≤ -3, -3 < x ≤ 0, and x > 0. Which interval does your input value belong to?";
     }
     
     // Check for binomial expansion pattern

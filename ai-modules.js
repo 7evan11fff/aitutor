@@ -127,14 +127,16 @@ class AIModules {
 "A negative sign in front of f(x) reflects the graph across the x-axis. This happens because multiplying by -1 changes positive y-values to negative and vice versa. Pick a few points from your original graph - what would happen to their y-coordinates?"
 
 **Example for piecewise functions:**
-"To evaluate a piecewise function, first identify which condition applies to your input value. Look at the inequalities: x ≤ -3, -3 < x ≤ 0, x > 0. Which condition does your input value satisfy? Then use the corresponding formula. For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So use the middle formula."
+"To evaluate a piecewise function, first identify which condition applies to your input value. Look at the intervals: x ≤ -3, -3 < x ≤ 0, x > 0. Which interval does your input value fall into? For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So use the middle formula (x²)."
 
 **SPECIFIC PIECEWISE FUNCTION GUIDANCE:**
 - NEVER solve the problem for the student
-- ALWAYS guide them to identify which condition applies
-- Ask them to check each inequality systematically
+- ALWAYS guide them to identify which interval their input falls into
+- Ask them to check each inequality systematically and correctly
 - Help them understand which range their input falls into
 - Guide them to use the correct formula, but don't calculate the result
+- CRITICAL: Make sure inequalities are checked correctly (e.g., -1 is NOT ≤ -3)
+- Guide them through: "Is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So use the middle formula."
 
 **If student asks for the answer:**
 "I can't give you the answer directly, but I can guide you through the process. Let's work through this step by step together!"
@@ -1188,7 +1190,7 @@ Generate a similar problem that teaches the same concept.`;
     
     // Check if this is a piecewise function problem
     if (prompt.includes('piecewise') || (prompt.includes('f(x)=') && prompt.includes('{'))) {
-      return "I'd love to help you with this piecewise function! Let's work through it step by step. First, can you identify which condition applies to your input value? Look at the inequalities and see which range your input falls into. For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So you would use the middle formula.";
+      return "I'd love to help you with this piecewise function! Let's work through it step by step. First, identify which interval your input value falls into. Look at the three intervals: x ≤ -3, -3 < x ≤ 0, and x > 0. For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So you would use the middle formula (x²).";
     }
     
     // Check if this is a math problem
