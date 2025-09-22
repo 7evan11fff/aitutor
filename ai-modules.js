@@ -70,7 +70,13 @@ class AIModules {
     // NO LOCKOUT - AI should always respond with guidance, never direct answers
 
     // Use selected text if available, otherwise use the problem
-    const mathProblem = (context && context.selectedText) || problem;
+    let mathProblem = (context && context.selectedText) || problem;
+    
+    // Check if we need to extract HTML for complex math
+    if (context.htmlExtracted || this.needsHTMLExtraction(mathProblem)) {
+      console.log('Math problem needs HTML extraction');
+      mathProblem = await this.extractMathFromHTML(mathProblem, context);
+    }
     
     // Build context from chat history
     // Don't pass chat history to keep responses fresh
@@ -113,6 +119,153 @@ class AIModules {
 Remember: Guide, don't solve. Help them discover the answer themselves.`;
 
     return await this.callAI(prompt);
+  }
+
+  // Helper method to detect if math problem needs HTML extraction
+  needsHTMLExtraction(mathProblem) {
+    // Check if the problem looks like it might be incomplete or needs HTML extraction
+    const indicators = [
+      // Very short text that might be incomplete
+      mathProblem.length < 10,
+      // Contains HTML-like patterns
+      mathProblem.includes('<') && mathProblem.includes('>'),
+      // Contains math symbols that might be rendered
+      /[√∫∑π∞≤≥≠≈]/.test(mathProblem),
+      // Contains LaTeX patterns
+      mathProblem.includes('\\') || mathProblem.includes('$'),
+      // Contains MathJax patterns
+      mathProblem.includes('MathJax') || mathProblem.includes('katex'),
+      // Looks like a selection that might have missed math content
+      mathProblem.includes('Selected text:') && mathProblem.length < 50
+    ];
+    
+    return indicators.some(indicator => indicator);
+  }
+
+  // Extract math content from HTML in the selected area
+  async extractMathFromHTML(mathProblem, context) {
+    console.log('Extracting math from HTML...');
+    
+    try {
+      // If we have context with selectedText, try to find the actual math content
+      if (context && context.selectedText) {
+        // Look for math elements in the current selection
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0) {
+          const range = selection.getRangeAt(0);
+          const container = range.commonAncestorContainer;
+          
+          // Extract math content from various math rendering systems
+          const mathContent = this.extractMathFromSelection(container, range);
+          if (mathContent && mathContent !== mathProblem) {
+            console.log('Extracted math content:', mathContent);
+            return mathContent;
+          }
+        }
+      }
+      
+      // Fallback: try to find math content in the document
+      const mathContent = this.findMathInDocument(mathProblem);
+      if (mathContent) {
+        console.log('Found math content in document:', mathContent);
+        return mathContent;
+      }
+      
+      // If no math content found, return original problem
+      console.log('No math content found, using original problem');
+      return mathProblem;
+      
+    } catch (error) {
+      console.error('Error extracting math from HTML:', error);
+      return mathProblem;
+    }
+  }
+
+  // Extract math content from a selection
+  extractMathFromSelection(container, range) {
+    // Look for various math rendering elements
+    const mathSelectors = [
+      '.MathJax, .math, [data-math], .katex, .latex, .mjx-chtml, .mjx-math',
+      '[class*="math"], [class*="MathJax"], [class*="katex"]',
+      'span[aria-label], div[aria-label]',
+      'span[title], div[title]'
+    ];
+    
+    let mathContent = null;
+    
+    // Check if container itself is a math element
+    if (container.nodeType === Node.ELEMENT_NODE) {
+      mathContent = this.extractFromMathElement(container);
+      if (mathContent) return mathContent;
+    }
+    
+    // Look for math elements within the selection
+    for (const selector of mathSelectors) {
+      const elements = container.querySelectorAll ? container.querySelectorAll(selector) : [];
+      for (const element of elements) {
+        mathContent = this.extractFromMathElement(element);
+        if (mathContent) return mathContent;
+      }
+    }
+    
+    // Look in parent elements
+    let parent = container.parentElement;
+    while (parent && parent !== document.body) {
+      for (const selector of mathSelectors) {
+        const elements = parent.querySelectorAll(selector);
+        for (const element of elements) {
+          mathContent = this.extractFromMathElement(element);
+          if (mathContent) return mathContent;
+        }
+      }
+      parent = parent.parentElement;
+    }
+    
+    return null;
+  }
+
+  // Extract content from a specific math element
+  extractFromMathElement(element) {
+    // Try different attributes that might contain the math source
+    const attributes = [
+      'data-math', 'data-latex', 'data-original', 'aria-label', 'title'
+    ];
+    
+    for (const attr of attributes) {
+      const value = element.getAttribute(attr);
+      if (value && value.trim().length > 0) {
+        return value.trim();
+      }
+    }
+    
+    // Try text content
+    const textContent = element.textContent;
+    if (textContent && textContent.trim().length > 0) {
+      return textContent.trim();
+    }
+    
+    return null;
+  }
+
+  // Find math content in the document
+  findMathInDocument(problem) {
+    // Look for math elements that might contain the problem
+    const mathSelectors = [
+      '.MathJax, .math, [data-math], .katex, .latex, .mjx-chtml, .mjx-math',
+      '[class*="math"], [class*="MathJax"], [class*="katex"]'
+    ];
+    
+    for (const selector of mathSelectors) {
+      const elements = document.querySelectorAll(selector);
+      for (const element of elements) {
+        const content = this.extractFromMathElement(element);
+        if (content && content.includes(problem.substring(0, 10))) {
+          return content;
+        }
+      }
+    }
+    
+    return null;
   }
 
   // Reading Support Module

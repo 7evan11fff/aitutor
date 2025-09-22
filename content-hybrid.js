@@ -250,7 +250,12 @@ async function getAIResponse(prompt, context = '') {
       response = await aiModules.handleGrammarRequest(contextToSend, { selectedText: context });
     } else if (siteContext === 'math') {
       console.log('Using math handler');
-      response = await aiModules.handleMathRequest(fullContext, { selectedText: context });
+      // Check if HTML extraction was used for this context
+      const htmlExtracted = context && context.includes('MathJax') || context.includes('katex') || context.includes('latex');
+      response = await aiModules.handleMathRequest(fullContext, { 
+        selectedText: context,
+        htmlExtracted: htmlExtracted
+      });
     } else if (siteContext === 'reading') {
       console.log('Using reading handler');
       response = await aiModules.handleReadingRequest(fullContext, { selectedText: context });
@@ -1274,6 +1279,7 @@ function setupTextSelection() {
       
       // Try to get MathJax/LaTeX code if available
       let mathText = currentSelection;
+      let htmlExtracted = false;
       const range = selection.getRangeAt(0);
       const container = range.commonAncestorContainer;
       
@@ -1290,6 +1296,7 @@ function setupTextSelection() {
                              mathElement.textContent;
           if (latexSource && latexSource !== currentSelection) {
             mathText = latexSource;
+            htmlExtracted = true;
             console.log('MathJax/LaTeX detected:', mathText);
           }
         }
@@ -1309,6 +1316,7 @@ function setupTextSelection() {
                                mathElement.textContent;
             if (latexSource && latexSource !== currentSelection) {
               mathText = latexSource;
+              htmlExtracted = true;
               console.log('MathJax/LaTeX detected in parent:', mathText);
               break;
             }
