@@ -261,13 +261,72 @@ Remember: Guide, don't solve. Help them discover the answer themselves.`;
       }
     }
     
-    // Try text content
+    // Try to find LaTeX source in script tags or other elements
+    const scriptTags = element.querySelectorAll('script[type="math/tex"], script[type="math/asciimath"], script[type="math/mml"]');
+    for (const script of scriptTags) {
+      if (script.textContent && script.textContent.trim().length > 0) {
+        return script.textContent.trim();
+      }
+    }
+    
+    // Try to reconstruct LaTeX from common patterns
     const textContent = element.textContent;
     if (textContent && textContent.trim().length > 0) {
+      // Check if this looks like a piecewise function that needs LaTeX formatting
+      if (textContent.includes('f(x)=') && textContent.includes('{') && textContent.includes('≤')) {
+        return this.reconstructPiecewiseFunction(textContent);
+      }
       return textContent.trim();
     }
     
     return null;
+  }
+
+  // Reconstruct piecewise function as proper LaTeX
+  reconstructPiecewiseFunction(text) {
+    console.log('Reconstructing piecewise function from:', text);
+    
+    // Try to extract the function definition
+    const functionMatch = text.match(/f\(x\)\s*=\s*\{([^}]+)\}/);
+    if (!functionMatch) {
+      return text; // Return original if we can't parse it
+    }
+    
+    const functionBody = functionMatch[1];
+    console.log('Function body:', functionBody);
+    
+    // Split by common separators and try to identify the pieces
+    const pieces = functionBody.split(/[,;]/).map(p => p.trim()).filter(p => p.length > 0);
+    console.log('Pieces found:', pieces);
+    
+    if (pieces.length >= 3) {
+      // Try to reconstruct as LaTeX cases
+      let latexFunction = 'f(x) = \\begin{cases}\n';
+      
+      for (let i = 0; i < pieces.length; i += 2) {
+        if (i + 1 < pieces.length) {
+          const formula = pieces[i].trim();
+          const condition = pieces[i + 1].trim();
+          
+          // Clean up the condition
+          let cleanCondition = condition
+            .replace(/x\s*≤\s*-3/g, 'x \\leq -3')
+            .replace(/x\s*>\s*0/g, 'x > 0')
+            .replace(/-3\s*<\s*x\s*≤\s*0/g, '-3 < x \\leq 0');
+          
+          latexFunction += `${formula} \\,, \\quad & ${cleanCondition}`;
+          if (i + 2 < pieces.length) {
+            latexFunction += '\\\\\n';
+          }
+        }
+      }
+      
+      latexFunction += '\n\\end{cases}';
+      console.log('Reconstructed LaTeX:', latexFunction);
+      return latexFunction;
+    }
+    
+    return text; // Return original if reconstruction fails
   }
 
   // Find math content in the document
