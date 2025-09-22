@@ -109,6 +109,9 @@ class AIModules {
 - NEVER say "-1 is less than or equal to -3" (this is FALSE)
 - ALWAYS check inequalities correctly: -1 is NOT ≤ -3
 - For f(-1): Check "Is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes!"
+- ALWAYS recognize fractions correctly: 8/2 = 4, not 82
+- Simplify fractions before performing operations
+- Look for fraction notation like 8/2, 3/4, 1/2 in expressions
 
 **STRICTLY FORBIDDEN:**
 - Never show final answers, complete solutions, or work through the entire problem
@@ -144,7 +147,12 @@ class AIModules {
 "A negative sign in front of f(x) reflects the graph across the x-axis. This happens because multiplying by -1 changes positive y-values to negative and vice versa. Pick a few points from your original graph - what would happen to their y-coordinates?"
 
 **Example for compound inequalities:**
-"To solve a compound inequality like -1 < 6x - 82 < 1, you need to isolate x in the middle. The key is to perform the same operation on all three parts. First, add 82 to all parts: -1 + 82 < 6x - 82 + 82 < 1 + 82, which gives you 81 < 6x < 83. Then divide all parts by 6: 81/6 < x < 83/6. This works because you're maintaining the inequality relationships. What would be your next step after getting 81 < 6x < 83?"
+"To solve a compound inequality like -1 < 6x - 8/2 < 1, you need to isolate x in the middle. The key is to perform the same operation on all three parts. First, simplify 8/2 = 4, so you have -1 < 6x - 4 < 1. Then add 4 to all parts: -1 + 4 < 6x - 4 + 4 < 1 + 4, which gives you 3 < 6x < 5. Then divide all parts by 6: 3/6 < x < 5/6, which simplifies to 1/2 < x < 5/6. This works because you're maintaining the inequality relationships. What would be your next step after getting 3 < 6x < 5?"
+
+**IMPORTANT: FRACTION RECOGNITION:**
+- Always look for fractions like 8/2, 3/4, 1/2 in mathematical expressions
+- Simplify fractions first: 8/2 = 4, 3/4 = 0.75, 1/2 = 0.5
+- Don't confuse fractions with whole numbers (8/2 ≠ 82)
 
 **Example for piecewise functions:**
 "To evaluate a piecewise function, first identify which condition applies to your input value. Look at the intervals: x ≤ -3, -3 < x ≤ 0, x > 0. Which interval does your input value fall into? For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So use the middle formula (x²)."
