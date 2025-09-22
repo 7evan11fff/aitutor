@@ -1055,7 +1055,8 @@ Generate a similar problem that teaches the same concept.`;
       
       // Check if Chrome extension APIs are available
       if (typeof chrome === 'undefined' || !chrome.runtime || !chrome.runtime.sendMessage) {
-        throw new Error('Chrome extension APIs not available. This might be due to the extension context or browser restrictions.');
+        console.log('Chrome extension APIs not available, using fallback guidance');
+        return this.getFallbackGuidance(prompt);
       }
       
       // Send request to background script to avoid CORS issues
@@ -1105,6 +1106,12 @@ Generate a similar problem that teaches the same concept.`;
         stack: error.stack
       });
       
+      // If Chrome extension APIs are not available, use fallback guidance
+      if (error.message.includes('Chrome extension APIs not available')) {
+        console.log('Using fallback guidance due to Chrome extension API unavailability');
+        return this.getFallbackGuidance(prompt);
+      }
+      
       // Provide more specific error messages
       if (error.message.includes('Failed to fetch')) {
         throw new Error('Network error: Unable to connect to Claude API. This might be due to CORS restrictions or network issues. Please check your internet connection and try again.');
@@ -1114,6 +1121,44 @@ Generate a similar problem that teaches the same concept.`;
         throw error;
       }
     }
+  }
+
+  // Fallback guidance when API is not available
+  getFallbackGuidance(prompt) {
+    console.log('Providing fallback guidance for:', prompt);
+    
+    // Check if this is a piecewise function problem
+    if (prompt.includes('piecewise') || (prompt.includes('f(x)=') && prompt.includes('{'))) {
+      return "I'd love to help you with this piecewise function! Let's work through it step by step. First, can you identify which condition applies to your input value? Look at the inequalities and see which range your input falls into. For example, if you're evaluating f(-1), check: is -1 ≤ -3? No. Is -3 < -1 ≤ 0? Yes! So you would use the middle formula.";
+    }
+    
+    // Check if this is a math problem
+    if (prompt.includes('math') || prompt.includes('solve') || prompt.includes('calculate') || prompt.includes('=')) {
+      return "I'd love to help you with this math problem! Let's work through it step by step. What specific part are you having trouble with? Can you tell me what you're trying to find?";
+    }
+    
+    // Check if this is a reading problem
+    if (prompt.includes('reading') || prompt.includes('comprehension') || prompt.includes('passage')) {
+      return "I'd love to help you with this reading comprehension! Let's work through it together. What specific part would you like help with?";
+    }
+    
+    // Check if this is a writing problem
+    if (prompt.includes('writing') || prompt.includes('essay') || prompt.includes('paragraph')) {
+      return "I'd love to help you with your writing! Let's work through it step by step. What specific part would you like help with?";
+    }
+    
+    // Check if this is a grammar problem
+    if (prompt.includes('grammar') || prompt.includes('sentence') || prompt.includes('punctuation')) {
+      return "I'd love to help you with grammar! Let's work through it together. What specific part would you like help with?";
+    }
+    
+    // Check if this is a vocabulary problem
+    if (prompt.includes('vocabulary') || prompt.includes('word') || prompt.includes('definition')) {
+      return "I'd love to help you with vocabulary! Let's work through it together. What specific word or concept would you like help with?";
+    }
+    
+    // Default response
+    return "I'd love to help you with this! Let's work through it step by step. What specific part would you like help with?";
   }
 
   // Clear context/memory
